@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دليل دراسة الذكاء الاصطناعي – الشابتر 1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Cairo:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#000;--panel:#140b05;--line:#3a1d0a;--or:#ff7a1a;--ord:#d9480f;--tx:#f4ede6;--mut:#b3a191;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 17px/1.8 Cairo,Tahoma,sans-serif}
+h1,h2,h3{font-family:"Chakra Petch",Cairo,sans-serif;line-height:1.3;margin:0 0 .5em}
+h1{font-size:clamp(34px,7vw,64px)}h2{font-size:clamp(24px,4vw,34px);color:var(--or)}h3{font-size:20px}
+main{max-width:1000px;margin:auto;padding:0 18px 60px}
+section{padding:38px 0 10px;border-top:1px solid var(--line)}
+nav{position:sticky;top:0;z-index:5;background:#000e;backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:8px 12px;display:flex;gap:8px;overflow-x:auto;align-items:center}
+nav a,.tg button{white-space:nowrap;color:var(--tx);text-decoration:none;font-size:14px;padding:4px 12px;border:1px solid var(--line);border-radius:20px;background:none;cursor:pointer;font-family:inherit}
+nav a:hover,.tg button.on{background:var(--or);color:#000;border-color:var(--or)}
+:focus-visible{outline:2px solid var(--or);outline-offset:2px}
+.tg{margin-inline-start:auto;display:flex;gap:6px}
+.hero{padding:50px 0 30px;text-align:center}
+.hero p{color:var(--mut);max-width:60ch;margin:8px auto}
+.hero svg{width:100%;max-width:560px;height:auto}
+.bi{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.bi>div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+.bi [lang=en]{direction:ltr;text-align:left;font-family:"Chakra Petch",sans-serif;font-weight:500;font-size:15.5px;line-height:1.7}
+.bi [lang=ar]{border-inline-start:3px solid var(--or)}
+body.en .bi{grid-template-columns:1fr}body.en [lang=ar].x,body.en .bi>[lang=ar]{display:none}
+body.ar .bi{grid-template-columns:1fr}body.ar .bi>[lang=en]{display:none}
+.bi p{margin:0 0 .5em}.bi ul{margin:0;padding-inline-start:20px}
+b,.k{color:var(--or)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0}
+.c{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:15px;line-height:1.6}
+.c i{font-style:normal;font-size:28px;display:block}.c h3{font-size:16px;margin:2px 0;color:var(--or)}
+.c small{display:block;color:var(--mut);direction:ltr;text-align:left;font-family:"Chakra Petch",sans-serif}
+.ex{border:1px dashed var(--or);border-radius:10px;padding:10px 16px;margin:14px 0;background:#ff7a1a0d}
+.ex:before{content:"مثال / Example";color:var(--or);font-weight:800;display:block}
+.warn{border:1px solid var(--ord);border-radius:10px;padding:10px 16px;margin:14px 0;background:#d9480f1a}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+.wrap{overflow-x:auto}th,td{border:1px solid var(--line);padding:8px 12px;text-align:start;vertical-align:top}th{background:var(--ord);color:#000}td:first-child{color:var(--or);font-weight:600}
+svg text{font-family:"Chakra Petch",Cairo,sans-serif;fill:var(--tx)}
+.quad{width:100%;max-width:640px;display:block;margin:10px auto}
+.tl{list-style:none;padding:0;margin:14px 0;border-inline-start:2px solid var(--ord)}
+.tl li{padding:2px 18px 10px;position:relative}.tl li:before{content:"";position:absolute;inset-inline-start:-7px;top:12px;width:12px;height:12px;border-radius:50%;background:var(--or)}
+.tl b{font-family:"Chakra Petch",sans-serif;direction:ltr;unicode-bidi:isolate}
+.fc{perspective:900px;min-height:130px;cursor:pointer;border:0;background:none;padding:0;color:inherit;font:inherit;text-align:center}
+.fc>span{display:flex;align-items:center;justify-content:center;min-height:130px;padding:12px;border-radius:10px;border:1px solid var(--or);background:var(--panel);transition:transform .4s,background .3s}
+.fc.f>span{background:var(--ord);color:#000;transform:rotateY(180deg)}.fc.f>span>em{transform:rotateY(180deg)}
+.fc em{font-style:normal;font-size:15px;line-height:1.6}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:14px 0}
+.q p{margin:0 0 8px;direction:ltr;text-align:left;font-family:"Chakra Petch",sans-serif}
+.q button{display:block;width:100%;direction:ltr;text-align:left;margin:6px 0;padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:#000;color:var(--tx);font:500 15px "Chakra Petch",sans-serif;cursor:pointer}
+.q button:hover:not(:disabled){border-color:var(--or)}
+.q button.ok{background:#1f6b2e;border-color:#4ade80;color:#fff}.q button.no{background:#7a1a12;border-color:#f87171;color:#fff}
+.q .fb{display:none;color:var(--mut);margin-top:8px;font-size:15px}.q.d .fb{display:block}
+#score{position:sticky;bottom:10px;margin:18px auto 0;width:max-content;background:var(--or);color:#000;font-weight:800;padding:6px 20px;border-radius:20px}
+.rb{background:var(--or);color:#000;border:0;border-radius:8px;padding:8px 20px;font:800 16px Cairo;cursor:pointer}
+@media(max-width:700px){.bi{grid-template-columns:1fr}body{font-size:16px}}
+@media(prefers-reduced-motion:no-preference){.pl{animation:p 2.4s infinite}@keyframes p{50%{opacity:.25}}}
+
+body.en [lang=ar]{display:none}body.ar [lang=en]{display:none}
+.c span,td span,th span,.ex span,.warn span,h2 span,h3 span,li>span,.hero p span{display:block}
+.c span[lang=en],td span[lang=en]{direction:ltr;text-align:left;font-family:"Chakra Petch",sans-serif;font-size:14px;color:var(--mut)}
+.c h3 span[lang=en],h2 span[lang=en],h3 span[lang=en]{color:var(--or);font-family:"Chakra Petch",sans-serif;direction:ltr}
+.c h3 span[lang=en]{font-size:15px}h2 span[lang=en]{font-size:.7em;color:var(--mut)}
+.c ul,td ul{margin:4px 0;padding-inline-start:18px}.c span[lang=en] ul{padding-inline-start:0;padding-left:18px}
+td span[lang=en]{margin-bottom:4px}.tl li span[lang=en]{direction:ltr;text-align:left;font-size:14px;color:var(--mut)}
+.hero p span[lang=en]{direction:ltr;color:var(--mut)}
+nav a span{display:inline}nav a span+span:before{content:" | "}body.en nav a span+span:before,body.ar nav a span+span:before{content:""}
+.fc em span{display:block}
+</style>
+</head>
+<body>
+<nav id="nav"></nav>
+<main>
+<header class="hero">
+<svg viewBox="0 0 560 200" role="img" aria-label="Neural network diagram">
+<g stroke="#d9480f" stroke-width="1.2" opacity=".8"><path d="M60 40L200 30M60 40L200 100M60 40L200 170M60 100L200 30M60 100L200 100M60 100L200 170M60 160L200 30M60 160L200 100M60 160L200 170M200 30L360 60M200 30L360 140M200 100L360 60M200 100L360 140M200 170L360 60M200 170L360 140M360 60L500 100M360 140L500 100"/></g>
+<g fill="#ff7a1a"><circle cx="60" cy="40" r="9"/><circle cx="60" cy="100" r="9"/><circle cx="60" cy="160" r="9"/><circle class="pl" cx="200" cy="30" r="9"/><circle cx="200" cy="100" r="9"/><circle class="pl" cx="200" cy="170" r="9"/><circle cx="360" cy="60" r="9"/><circle class="pl" cx="360" cy="140" r="9"/><circle cx="500" cy="100" r="13"/></g>
+<text x="60" y="195" font-size="12" text-anchor="middle">Input</text><text x="280" y="195" font-size="12" text-anchor="middle">Hidden</text><text x="500" y="195" font-size="12" text-anchor="middle">Output</text>
+</svg>
+<h1>Introduction to AI</h1>
+<p><b>دليل الدراسة الشامل: الفصل الأول</b><br><span lang="en">Bilingual study guide covering every topic in the Chapter 1 slides, Second Semester 2025-2026.</span><span lang="ar">شرح بالعربية والإنجليزية يغطي كل مواضيع سلايدات الفصل الأول، مع أمثلة وأسئلة تفاعلية.</span></p>
+</header>
+<div id="app"></div>
+</main>
+<script>
+function L(e,a){return "<span lang='en'>"+e+"</span><span lang='ar'>"+a+"</span>"}
+function bi(e,a){return "<div class='bi'><div lang='en'>"+e+"</div><div lang='ar'>"+a+"</div></div>"}
+function ul(x){return "<ul>"+x.map(function(i){return "<li>"+i+"</li>"}).join("")+"</ul>"}
+function sh(e,a){return "<h3>"+L(e,a)+"</h3>"}
+function ex(e,a){return "<div class='ex'>"+L(e,a)+"</div>"}
+function wn(e,a){return "<div class='warn'>⚠️ "+L(e,a)+"</div>"}
+function cards(r){return "<div class='grid'>"+r.map(function(c){return "<div class='c'><i>"+c[0]+"</i><h3>"+L(c[1],c[2])+"</h3>"+L(c[3]||"",c[4]||"")+"</div>"}).join("")+"</div>"}
+function tbl(h,r){return "<div class='wrap'><table><tr>"+h.map(function(x){return "<th>"+L(x[0],x[1])+"</th>"}).join("")+"</tr>"+r.map(function(row){return "<tr>"+row.map(function(x){return "<td>"+L(x[0],x[1])+"</td>"}).join("")+"</tr>"}).join("")+"</table></div>"}
+function tl(r){return "<ul class='tl'>"+r.map(function(x){return "<li><b>"+x[0]+"</b>"+L(x[1],x[2])+"</li>"}).join("")+"</ul>"}
+function sec(id,e,a,h){return "<section id='"+id+"'><h2>"+L(e,a)+"</h2>"+h+"</section>"}
+var S=[];
+S.push(["apps","Applications","التطبيقات",sec("apps","Exploring the Diverse Applications of AI","تنوع تطبيقات الذكاء الاصطناعي",
+bi("<p>AI is already part of daily life: customer service, shopping, cars, drones, travel, and the apps on your phone.</p>","<p>الذكاء الاصطناعي جزء من حياتنا اليومية: خدمة العملاء، التسوق، السيارات، الطائرات المسيّرة، السفر، وتطبيقات الهاتف.</p>")+
+cards([["💬","Customer Service Support","دعم خدمة العملاء","Chatbots give 24/7 instant responses (better engagement and satisfaction) and cut operational costs by automating routine inquiries.","روبوتات المحادثة تقدم دعمًا على مدار الساعة وردودًا فورية، وتخفض التكاليف بأتمتة الاستفسارات الروتينية."],
+["🛒","Online Shopping","التسوق عبر الإنترنت","Personalized recommendations from user behavior and preferences. Customer analytics improve marketing strategy and retention.","توصيات مخصصة بناءً على سلوك المستخدم وتفضيلاته. وتحليل سلوك العملاء يحسّن التسويق والاحتفاظ بهم."],
+["🚗","Smart Cars: Autonomous Driving","السيارات الذكية: القيادة الذاتية","AI is reshaping the automotive industry by enabling self-driving vehicles.","الذكاء الاصطناعي يعيد تشكيل صناعة السيارات عبر المركبات ذاتية القيادة."],
+["🛸","Smart UAVs (Intelligent Drones)","الطائرات المسيّرة الذكية","Agriculture, search and rescue, monitoring, and delivery services.","الزراعة، البحث والإنقاذ، المراقبة، وخدمات التوصيل."],
+["🧭","Travel and Navigation","السفر والملاحة","Navigation and traffic management optimize routes, cut travel time and congestion; plus personalized trip and destination suggestions.","أنظمة الملاحة وإدارة المرور تحسّن المسارات وتقلل الوقت والازدحام، مع اقتراحات سفر ووجهات مخصصة."]])+
+sh("Applications Powered by AI","تطبيقات تعمل بالذكاء الاصطناعي")+
+cards([["🔎","Google Search","بحث جوجل",ul(["Ranking algorithm: ML models judge page relevance and sort results","Voice search: speech recognition","Personalization from search history","Autocomplete and suggestions","Image and video search with visual input"]),ul(["خوارزمية الترتيب: نماذج تعلم آلي تقيّم صلة الصفحات وترتبها","البحث الصوتي بالتعرف على الكلام","التخصيص حسب سجل البحث","الإكمال التلقائي والاقتراحات","البحث بالصور والفيديو"])],
+["👥","Facebook","فيسبوك",ul(["News Feed content personalization","Ad targeting and recommendations","Automatic image/video recognition (tagging people)","Messenger bots for business support","Voice commands and voice-to-text"]),ul(["تخصيص محتوى صفحة الأخبار","استهداف الإعلانات والتوصيات","التعرف التلقائي على الصور والفيديو (وسم الأشخاص)","روبوتات ماسنجر لدعم الأعمال","الأوامر الصوتية وتحويل الصوت إلى نص"])],
+["👻","Snapchat","سناب شات",ul(["AR filters and Lenses","Snap Map","Discover content personalization","Friend suggestions","Dynamic personalized ads"]),ul(["فلاتر وعدسات الواقع المعزز","خريطة سناب","تخصيص محتوى Discover","اقتراح الأصدقاء","إعلانات ديناميكية مخصصة"])],
+["📱","WhatsApp","واتساب",ul(["End-to-end encryption (as stated in the slides)","Image and video compression","Business chatbots (WhatsApp Business API)","Better search inside chats","Voice message transcription"]),ul(["التشفير من طرف إلى طرف (كما في السلايد)","ضغط الصور والفيديو","روبوتات محادثة للأعمال (WhatsApp Business API)","تحسين البحث داخل المحادثات","تحويل الرسائل الصوتية إلى نص"])]])+
+wn("<b>Note:</b> the slide says WhatsApp uses AI for end-to-end encryption. In reality, encryption relies on cryptography, not AI. Write it as in the slide for the exam, but know the difference.","<b>ملاحظة:</b> السلايد يذكر أن واتساب يستخدم الذكاء الاصطناعي في التشفير. في الواقع يعتمد التشفير على علم التشفير (Cryptography) وليس الذكاء الاصطناعي. اكتبها كما في السلايد للامتحان، لكن اعرف الفرق.")+
+sh("AI in Everyday Life","الذكاء الاصطناعي في الحياة اليومية")+
+cards([["🗣️","Smart Assistants","المساعدات الذكية"],["📲","Social Media","وسائل التواصل"],["🛍️","Online Shopping","التسوق الإلكتروني"],["🏥","Healthcare","الرعاية الصحية"],["🚘","Autonomous Vehicles","المركبات ذاتية القيادة"],["💳","Finance","المال والتمويل"],["🎧","Customer Service","خدمة العملاء"],["🔒","Security","الأمن"],["🚆","Transportation","النقل"],["🎓","Education","التعليم"]])+
+ex("From science fiction to everyday reality: AI changes the way we live and work.","من الخيال العلمي إلى الواقع اليومي: الذكاء الاصطناعي يغيّر طريقة عيشنا وعملنا.")
+)]);
+S.push(["modern","Modern Approach","النهج الحديث",sec("modern","AI: A Modern Approach","الذكاء الاصطناعي: نهج حديث",
+bi("<p>AI is an <b>applied computing discipline</b>. It covers general subfields (learning, reasoning, perception) and specific ones (chess, proving theorems, driving, diagnosing diseases). It is relevant to any intellectual task: a <b>universal field</b> powering the <b>Fourth Industrial Revolution</b>.</p>","<p>الذكاء الاصطناعي تخصص حوسبة تطبيقي. يشمل مجالات عامة (التعلم، الاستدلال، الإدراك) ومجالات محددة (الشطرنج، إثبات النظريات، قيادة السيارات، تشخيص الأمراض). وهو مناسب لأي مهمة فكرية، فهو <b>مجال شامل</b> ويقود <b>الثورة الصناعية الرابعة</b>.</p>")+
+sh("Goal: Maximize Expected Utility","الهدف: تعظيم المنفعة المتوقعة")+
+bi(ul(["The goal of AI is to maximize expected <b>utility</b>.","Old view: the objective is supplied by the human designers.","<b>New view:</b> the objective is no longer assumed fixed and known. We design systems that (a) maximize utility and (b) behave properly and correctly even while <b>uncertain</b> of the objective."]),ul(["هدف الذكاء الاصطناعي هو تعظيم <b>المنفعة</b> المتوقعة.","النظرة القديمة: المصممون البشر يحددون الهدف.","<b>النظرة الحديثة:</b> لا نفترض أن الهدف ثابت ومعروف للنظام. نصمم أنظمة (أ) تعظّم المنفعة و(ب) تتصرف بشكل سليم حتى مع <b>عدم التأكد</b> من الهدف."]))+
+sh("Utility vs Cost","المنفعة والتكلفة")+
+bi(ul(["<b>Utility</b> = benefit or value an agent gets from a choice.","<b>Cost</b> = resources required to achieve that choice.","Trade-off: agents maximize utility while minimizing cost, seeking the greatest utility for the least cost."]),ul(["<b>المنفعة</b> = الفائدة أو القيمة التي يحصل عليها الوكيل من خيار معين.","<b>التكلفة</b> = الموارد المطلوبة لتحقيق هذا الخيار.","هناك مفاضلة: يسعى الوكيل لأعلى منفعة بأقل تكلفة."]))+
+ex("Choosing a flight: a direct flight is expensive (high utility, high cost); a connecting flight is cheap. A rational agent balances them according to your preferences.","اختيار رحلة طيران: الرحلة المباشرة غالية (منفعة وتكلفة عاليتان) والرحلة بتوقف أرخص. الوكيل العقلاني يوازن بينهما حسب تفضيلاتك.")+
+sh("Rationality and Decisions","العقلانية والقرارات")+
+bi(ul(["Researchers defined intelligence either by <b>fidelity to human performance</b> or by an abstract formal definition: <b>rationality</b>, “doing the right thing”.","Intelligence can be seen as internal thought and reasoning, or as external <b>intelligent behavior</b>.","Rationality means achieving predefined goals, concerns the <b>decisions</b> made, and goals are expressed as the utility of outcomes. Being rational = <b>maximizing expected utility</b>."]),ul(["عرّف الباحثون الذكاء إما بالتطابق مع الأداء البشري أو بتعريف صوري مجرد: <b>العقلانية</b>، أي “فعل الشيء الصحيح”.","يمكن اعتبار الذكاء خاصية للتفكير الداخلي والاستدلال، أو للسلوك الخارجي الذكي.","العقلانية تعني تحقيق أهداف محددة مسبقًا، وتتعلق بـ<b>القرارات</b> المتخذة، وتُعبَّر الأهداف بمنفعة النتائج. أن تكون عقلانيًا = <b>تعظيم المنفعة المتوقعة</b>."]))
+)]);
+S.push(["four","Four Approaches","الأنواع الأربعة",sec("four","Different Types of AI","أنواع الذكاء الاصطناعي",
+"<svg class='quad' viewBox='0 0 640 290' role='img' aria-label='Four approaches to AI'><g fill='#140b05' stroke='#d9480f' stroke-width='1.5'><rect x='10' y='30' width='305' height='120' rx='10'/><rect x='325' y='30' width='305' height='120' rx='10'/><rect x='10' y='160' width='305' height='120' rx='10'/><rect x='325' y='160' width='305' height='120' rx='10'/></g><g font-size='13' text-anchor='middle'><text x='162' y='18' style='fill:#ff7a1a'>Humanly | مثل البشر</text><text x='477' y='18' style='fill:#ff7a1a'>Rationally | بعقلانية</text></g><g text-anchor='middle'><text x='162' y='68' font-size='18' font-weight='700'>Thinking Humanly</text><text x='162' y='92' font-size='12'>Cognitive models of human reasoning</text><text x='162' y='112' font-size='12'>نماذج معرفية للتفكير البشري</text><text x='477' y='68' font-size='18' font-weight='700'>Thinking Rationally</text><text x='477' y='92' font-size='12'>Formal logic: how ideal agents should think</text><text x='477' y='112' font-size='12'>المنطق الصوري: كيف ينبغي أن يفكر الوكيل</text><text x='162' y='198' font-size='18' font-weight='700'>Acting Humanly</text><text x='162' y='222' font-size='12'>Models of human behavior (Turing Test)</text><text x='162' y='242' font-size='12'>نماذج السلوك البشري (اختبار تورنج)</text><text x='477' y='198' font-size='18' font-weight='700' style='fill:#ff7a1a'>Acting Rationally</text><text x='477' y='222' font-size='12'>Rational actions, black-box / engineering</text><text x='477' y='242' font-size='12'>أفعال عقلانية، نهج هندسي (الصندوق الأسود)</text></g></svg>"+
+cards([["🧠","Thinking Humanly","التفكير مثل البشر","Model exactly how humans actually think. Cognitive models replicate how humans decide, solve problems, draw conclusions and process information.","نمذجة كيف يفكر البشر فعليًا. النماذج المعرفية تحاكي كيف يتخذ الإنسان القرارات ويحل المشكلات ويستنتج ويعالج المعلومات."],
+["🧑‍🤝‍🧑","Acting Humanly","التصرف مثل البشر","Model exactly how humans act: what they do, not how they think. These models understand and predict human actions, behaviors and movements.","نمذجة كيف يتصرف البشر فعليًا: ما يفعلونه لا كيف يفكرون. تفهم هذه النماذج الأفعال والسلوكيات والحركات البشرية وتتنبأ بها."],
+["📐","Thinking Rationally","التفكير بعقلانية","Model how ideal agents should think using formal logic and mathematical reasoning. Note: humans are often not rational.","نمذجة كيف ينبغي أن يفكر الوكيل المثالي باستخدام المنطق الصوري والاستدلال الرياضي. ملاحظة: البشر غالبًا غير عقلانيين."],
+["🎯","Acting Rationally","التصرف بعقلانية","Take rational actions based on input and goals, without needing detailed step-by-step logical justification. The system may be a black box: an engineering approach focused on desired outcomes.","اتخاذ أفعال عقلانية بناءً على المدخلات والأهداف دون الحاجة لتبرير منطقي تفصيلي. قد يكون النظام صندوقًا أسود: نهج هندسي يركز على النتائج المطلوبة."]])+
+sh("Turing Test Approach","نهج اختبار تورنج")+
+bi("<p>It defines what <b>acting like a human</b> means. A human judge chats in natural language with one human and one machine, each trying to appear human. If the judge can’t tell them apart, the machine <b>passes</b>.</p>","<p>يحدد معنى <b>التصرف كإنسان</b>. يتحاور حكم بشري بلغة طبيعية مع إنسان وآلة، وكلاهما يحاول أن يبدو بشريًا. إذا لم يستطع الحكم التمييز بينهما، فالآلة <b>تنجح</b>.</p>")+
+sh("Example: HAL in 2001: A Space Odyssey","مثال: HAL في فيلم 2001: A Space Odyssey")+
+tbl([["HAL ability","قدرة HAL"],["AI field","المجال"]],[[["Speaks easily with the crew","يتحدث مع الطاقم بسهولة"],["NLP","معالجة اللغة الطبيعية"]],[["Sees and understands crew emotions","يرى مشاعر الطاقم ويفهمها"],["Facial Recognition","التعرف على الوجوه"]],[["Navigates the ship automatically","يقود السفينة تلقائيًا"],["Computer Vision","الرؤية الحاسوبية"]],[["Diagnoses on-board problems","يشخّص أعطال السفينة"],["ML","التعلم الآلي"]],[["Makes life-and-death decisions; displays emotions","يتخذ قرارات مصيرية ويُظهر مشاعر"],["Advanced AI","ذكاء متقدم"]]])+
+wn("The slide calls it a 1969 movie but lists the release date as April 2, 1968 (director: Stanley Kubrick). The correct release is 1968. The slide’s question: in 1969 this was science fiction, is it still sci-fi?","السلايد يصف الفيلم بأنه من 1969 لكنه يذكر تاريخ الإصدار 2 أبريل 1968 (المخرج: ستانلي كوبريك). الصحيح هو 1968. وسؤال السلايد: في 1969 كان خيالًا علميًا، فهل ما زال كذلك؟")
+)]);
+S.push(["agents","Agents","الوكلاء",sec("agents","Intelligent Agents","الوكلاء الأذكياء",
+bi("<p>The unifying theme of the course is the <b>intelligent agent</b>. AI is the study of agents that receive <b>percepts</b> from the environment and perform <b>actions</b>. Each agent implements a function mapping <b>percept sequences to actions</b>. Examples: reactive agents, real-time planners, decision-theoretic systems, neural networks and deep learning systems.</p>","<p>الفكرة الموحِّدة للمقرر هي <b>الوكيل الذكي</b>. الذكاء الاصطناعي هو دراسة الوكلاء الذين يستقبلون <b>المُدركات (percepts)</b> من البيئة وينفذون <b>أفعالًا</b>. كل وكيل ينفذ دالة تربط <b>تسلسل المُدركات بالأفعال</b>. أمثلة: الوكلاء التفاعليون، مخططات الزمن الحقيقي، أنظمة نظرية القرار، الشبكات العصبية وأنظمة التعلم العميق.</p>")+
+"<svg class='quad' viewBox='0 0 640 220' role='img' aria-label='Agent and environment loop'><rect x='10' y='10' width='620' height='200' rx='14' fill='none' stroke='#3a1d0a' stroke-dasharray='6 5'/><text x='320' y='34' text-anchor='middle' font-size='14' style='fill:#b3a191'>Environment | البيئة</text><rect x='230' y='70' width='180' height='90' rx='10' fill='#d9480f'/><text x='320' y='108' text-anchor='middle' font-size='20' font-weight='700' style='fill:#000'>Agent ?</text><text x='320' y='132' text-anchor='middle' font-size='12' style='fill:#000'>percepts → actions</text><g stroke='#ff7a1a' stroke-width='2.5' fill='none'><path d='M90 100H228'/><path d='M412 130H550'/></g><g fill='#ff7a1a'><path d='M228 100l-9-5v10z'/><path d='M550 130l-9-5v10z'/></g><text x='90' y='88' font-size='14'>Sensors → Percepts</text><text x='440' y='118' font-size='14'>Actuators → Actions</text></svg>"+
+ex("Robot vacuum: sensors = camera and bump sensor; percept = “wall ahead”; actuators = wheels and brush; action = turn right.","مكنسة روبوتية: المستشعرات = كاميرا وحساس اصطدام؛ المُدرَك = “جدار أمامي”؛ المحركات = العجلات والفرشاة؛ الفعل = الالتفاف لليمين.")+
+sh("Machines that “LEARN”","آلات “تتعلم”")+
+bi(ul(["Learning is a construction method for component systems and a way of extending the designer’s reach into unknown environments.","Robotics and vision are not independent problems; they serve the achievement of goals.","The task environment determines the appropriate agent design.","The aim is to convey ideas from 70 years of AI research and two millennia of related work."]),ul(["التعلم أسلوب لبناء مكونات النظام، وطريقة لتوسيع قدرة المصمم إلى بيئات مجهولة.","الروبوتات والرؤية ليست مشكلات مستقلة، بل تخدم تحقيق الأهداف.","بيئة المهمة هي التي تحدد تصميم الوكيل المناسب.","الهدف نقل أفكار 70 عامًا من أبحاث الذكاء الاصطناعي وألفي عام من الأعمال ذات الصلة."]))+
+sh("Course Map: Creative AI Agents","خريطة المقرر: وكلاء الذكاء الاصطناعي الإبداعي")+
+cards([["⚖️","AI and Ethics","الذكاء الاصطناعي والأخلاقيات"],["💡","Computational Thinking for AI","التفكير الحاسوبي للذكاء الاصطناعي"],["📈","Machine Learning","التعلم الآلي"],["🎨","Creative AI","الذكاء الاصطناعي الإبداعي"]])+
+bi("<p>The curriculum teaches <b>Creative Machine Learning</b> techniques and how they partner with AI to build AI-driven solutions for applied domains. <b>Term projects:</b> AI in Agriculture, AI in Arts, AI in Image Recognition.</p>","<p>يعلّم المنهج تقنيات <b>التعلم الآلي الإبداعي</b> وكيف تتشارك مع الذكاء الاصطناعي لبناء حلول في مجالات تطبيقية. <b>مشاريع الفصل:</b> الذكاء الاصطناعي في الزراعة، في الفنون، وفي التعرف على الصور.</p>")
+)]);
+S.push(["ml","Machine Learning","التعلم الآلي",sec("ml","Machine Learning, Data and Neural Networks","التعلم الآلي والبيانات والشبكات العصبية",
+tbl([["","" ],["Machine Learning (ML)","التعلم الآلي"],["Knowledge Engineering","هندسة المعرفة"]],[[["Approach","النهج"],["Data-driven: learns patterns and makes predictions from data","قائم على البيانات: يتعلم الأنماط ويتنبأ منها"],["Rule-based: encodes human knowledge into formal rules and knowledge representations","قائم على القواعد: يرمّز المعرفة البشرية في قواعد وتمثيلات معرفة صورية"]],[["In this course","في المقرر"],["Our focus, thanks to more data, computing resources and new algorithms","محور تركيزنا، بفضل توفر البيانات والموارد الحاسوبية والخوارزميات الجديدة"],["Hand-crafted, less emphasis","مبني يدويًا، تركيز أقل"]]])+
+sh("Data is the New Oil","البيانات هي النفط الجديد")+
+bi(ul(["Data is a valuable resource that fuels AI and drives innovation, like oil reshaping industries and economies.","Data trains AI models to recognize patterns, make predictions, and perform tasks: image recognition, natural language processing, recommendation systems.","<b>An Internet minute (2023):</b> people check emails, send text messages, shop, and watch YouTube and TikTok videos, generating huge data."]),ul(["البيانات مورد قيّم يغذي الذكاء الاصطناعي ويدفع الابتكار، كما أعاد النفط تشكيل الصناعات والاقتصادات.","تُستخدم البيانات لتدريب النماذج على اكتشاف الأنماط والتنبؤ وأداء مهام مثل التعرف على الصور ومعالجة اللغة الطبيعية وأنظمة التوصية.","<b>دقيقة على الإنترنت (2023):</b> يفحص الناس البريد، يرسلون الرسائل، يتسوقون، ويشاهدون فيديوهات يوتيوب وتيك توك، مما ينتج بيانات ضخمة."]))+
+sh("Neural Networks","الشبكات العصبية")+
+bi("<p>A class of ML models <b>inspired by the structure and functioning of the human brain</b>, mimicking its operations to recognize relationships in data.</p>","<p>فئة من نماذج التعلم الآلي <b>مستوحاة من بنية الدماغ البشري ووظائفه</b>، تحاكي عمله لاكتشاف العلاقات في البيانات.</p>")+
+ex("Activity, Quick Draw (quickdraw.withgoogle.com): you draw, and a neural network guesses. It learned patterns from millions of drawings.","النشاط، Quick Draw (quickdraw.withgoogle.com): ترسم أنت وتخمّن الشبكة العصبية الرسم، فقد تعلمت الأنماط من ملايين الرسومات.")
+)]);
+S.push(["hist","History","التاريخ",sec("hist","Foundations and History of AI","أسس الذكاء الاصطناعي وتاريخه",
+sh("Contributing Disciplines","التخصصات المساهمة")+
+tbl([["Discipline","التخصص"],["Contribution and key questions","المساهمة والأسئلة الرئيسية"]],[
+[["Philosophy","الفلسفة"],["Logic, reasoning, mind as a physical system, foundations of learning, language, rationality. Can formal rules draw valid conclusions? How does the mind arise from a brain? Where does knowledge come from? How does knowledge lead to action?","المنطق والاستدلال والعقل كنظام فيزيائي وأسس التعلم واللغة والعقلانية. هل تستخلص القواعد الصورية نتائج صحيحة؟ كيف ينشأ العقل من الدماغ؟ من أين تأتي المعرفة؟ كيف تقود المعرفة إلى الفعل؟"]],
+[["Mathematics","الرياضيات"],["Formal representation and proof, algorithms, computation, (un)decidability, (in)tractability, probability. What can be computed? How do we reason with uncertain information?","التمثيل الصوري والبرهان والخوارزميات والحوسبة وقابلية القرار وقابلية المعالجة والاحتمالات. ما الذي يمكن حسابه؟ كيف نستدل بمعلومات غير مؤكدة؟"]],
+[["Economics","الاقتصاد"],["Utility and decision theory. How to decide per our preferences, when others may not go along, and when the payoff is far in the future. Satisficing, via Herbert Simon.","المنفعة ونظرية القرار. كيف نقرر وفق تفضيلاتنا، حين لا يتعاون الآخرون، وحين يكون العائد بعيدًا. الاكتفاء بالحل المرضي (Satisficing) عند هربرت سايمون."]],
+[["Neuroscience","علم الأعصاب"],["Neurons as information-processing units.","الخلايا العصبية كوحدات معالجة معلومات."]],
+[["Psychology and Cognitive Science","علم النفس والعلوم المعرفية"],["How people behave, perceive, process information and represent knowledge.","كيف يتصرف الناس ويدركون ويعالجون المعلومات ويمثلون المعرفة."]],
+[["Computer Engineering","هندسة الحاسوب"],["Building fast computers.","بناء حواسيب سريعة."]],
+[["Control Theory","نظرية التحكم"],["Designing systems that maximize an objective function over time.","تصميم أنظمة تعظّم دالة هدف عبر الزمن."]],
+[["Linguistics","اللسانيات"],["Knowledge representation and grammar.","تمثيل المعرفة والقواعد النحوية."]]])+
+sh("Timeline","الخط الزمني")+
+tl([["1943","McCulloch &amp; Pitts: Boolean circuit model of the brain","ماكولوك وبيتس: نموذج دوائر منطقية للدماغ"],
+["1950","Turing’s “Computing Machinery and Intelligence”","ورقة تورنج “Computing Machinery and Intelligence”"],
+["1956","Dartmouth meeting: the term “Artificial Intelligence” adopted","مؤتمر دارتموث: اعتماد مصطلح “الذكاء الاصطناعي”"],
+["1950s","Early programs: Samuel’s checkers, Newell &amp; Simon’s Logic Theorist, Gelernter’s Geometry Engine","برامج مبكرة: الداما لسامويل، Logic Theorist لنيويل وسايمون، Geometry Engine لجيلرنتر"],
+["1965","Robinson’s complete algorithm for logical reasoning","خوارزمية روبنسون الكاملة للاستدلال المنطقي"],
+["1966–73","AI discovers computational complexity; neural network research almost disappears","اكتشاف التعقيد الحسابي، واختفاء أبحاث الشبكات العصبية تقريبًا"],
+["1969–79","Early knowledge-based systems","تطور مبكر للأنظمة القائمة على المعرفة"],
+["1980–","AI becomes an industry","الذكاء الاصطناعي يصبح صناعة"],
+["1986–","Neural networks return to popularity","عودة الشبكات العصبية للشعبية"],
+["1987–","AI becomes a science","الذكاء الاصطناعي يصبح علمًا"],
+["1995–","Emergence of intelligent agents","ظهور الوكلاء الأذكياء"]])+
+sh("Turing Award Milestones","محطات جائزة تورنج")+
+cards([["🏆","Minsky (1969) and McCarthy (1971)","مينسكي (1969) وماكارثي (1971)","Foundations of the field: representation and reasoning.","أسس المجال: التمثيل والاستدلال."],["🏆","Feigenbaum and Reddy (1994)","فايغنباوم وريدي (1994)","Expert systems that encode human knowledge for real-world problems.","الأنظمة الخبيرة التي ترمّز المعرفة البشرية لحل مشكلات واقعية."],["🏆","Judea Pearl (2011)","جوديا بيرل (2011)","Probabilistic reasoning to handle uncertainty in a principled way.","الاستدلال الاحتمالي للتعامل مع عدم اليقين بشكل منهجي."],["🏆","Bengio, Hinton, LeCun (2019)","بنجيو وهينتون ولوكون (2019)","Made deep learning (multilayer neural networks) critical to modern computing.","جعلوا التعلم العميق (الشبكات العصبية متعددة الطبقات) جزءًا أساسيًا من الحوسبة الحديثة."]])
+)]);
+var F=[["Rationality","العقلانية","Doing the right thing: maximizing expected utility to achieve goals.","فعل الشيء الصحيح: تعظيم المنفعة المتوقعة لتحقيق الأهداف."],
+["Utility","المنفعة","Benefit or value an agent gets from a choice.","الفائدة أو القيمة التي يحصل عليها الوكيل من خيار ما."],
+["Percept","المُدرَك","Input an agent receives from the environment through sensors.","مدخل يستقبله الوكيل من البيئة عبر المستشعرات."],
+["Agent function","دالة الوكيل","Maps percept sequences to actions.","تربط تسلسل المُدركات بالأفعال."],
+["Turing Test","اختبار تورنج","A judge who can’t tell human from machine means the machine passes.","إذا لم يميز الحكم بين الإنسان والآلة فقد نجحت الآلة."],
+["Machine Learning","التعلم الآلي","Data-driven approach that learns patterns and predicts.","نهج قائم على البيانات يتعلم الأنماط ويتنبأ."],
+["Knowledge Engineering","هندسة المعرفة","Rule-based approach encoding human knowledge.","نهج قائم على القواعد يرمّز المعرفة البشرية."],
+["Neural Network","الشبكة العصبية","ML model inspired by the brain that recognizes relationships in data.","نموذج تعلم آلي مستوحى من الدماغ يكتشف العلاقات في البيانات."],
+["Satisficing","الاكتفاء بالمرضي","Choosing a good-enough solution (Herbert Simon).","اختيار حل كافٍ بدل الأمثل (هربرت سايمون)."],
+["Dartmouth 1956","دارتموث 1956","Meeting where “Artificial Intelligence” was adopted.","المؤتمر الذي اعتُمد فيه مصطلح الذكاء الاصطناعي."],
+["Acting Rationally","التصرف بعقلانية","Rational actions toward goals; black-box engineering approach.","أفعال عقلانية نحو الأهداف بنهج هندسي (صندوق أسود)."],
+["Fourth Industrial Revolution","الثورة الصناعية الرابعة","The era powered by AI.","العصر الذي يقوده الذكاء الاصطناعي."],
+["Cognitive models","النماذج المعرفية","Replicate how humans decide, solve problems and reason.","تحاكي كيف يقرر البشر ويحلون المشكلات ويستدلون."],
+["Deep learning","التعلم العميق","Multilayer neural networks (Bengio, Hinton, LeCun, 2019).","شبكات عصبية متعددة الطبقات (بنجيو وهينتون ولوكون، 2019)."]];
+S.push(["cards","Flashcards","بطاقات",sec("cards","Flashcards","بطاقات المراجعة",L("Tap a card to flip it.","اضغط على البطاقة لقلبها.")+"<div class='grid' id='fcs'></div>")]);
+S.push(["quiz","Quiz","اختبار",sec("quiz","Test Yourself","اختبر نفسك","<div id='qs'></div><div id='score'></div><p style='text-align:center'><button class='rb' id='rs'>Retry | إعادة الاختبار</button></p>")]);
+var Q=[["Which approach does this course focus on, with agents acting to achieve goals?",["Thinking Humanly","Thinking Rationally","Acting Humanly","Acting Rationally"],3,"Agents that act to maximize expected utility.","وكلاء يتصرفون لتعظيم المنفعة المتوقعة."],
+["Rationality means…",["Maximizing expected utility","Mimicking human emotions","Using only formal logic","Memorizing rules"],0,"Rational = maximizing expected utility.","العقلانية = تعظيم المنفعة المتوقعة."],
+["An agent function maps…",["Actions to percepts","Data to rules","Percept sequences to actions","Goals to costs"],2,"Percept sequences to actions.","تسلسل المُدركات إلى أفعال."],
+["The Turing Test defines…",["Thinking rationally","Acting humanly","Utility","Machine learning"],1,"If the judge can’t tell, the machine passes.","إن لم يميّز الحكم تنجح الآلة."],
+["Which approach is data-driven?",["Knowledge Engineering","Machine Learning","Rule-based systems","Formal logic"],1,"ML learns from data; KE uses hand-written rules.","التعلم الآلي يتعلم من البيانات والآخر قواعد مكتوبة يدويًا."],
+["“Artificial Intelligence” was adopted at the meeting of…",["1943","1950","1987","1956"],3,"Dartmouth 1956.","مؤتمر دارتموث 1956."],
+["In the modern view, the objective is…",["Fixed and known","Possibly uncertain to the system","Irrelevant","Supplied only by users"],1,"Systems must behave properly even when uncertain of the objective.","يجب أن يتصرف النظام جيدًا حتى مع عدم التأكد من الهدف."],
+["Turing Award 2011, probabilistic reasoning:",["Marvin Minsky","Yann LeCun","Raj Reddy","Judea Pearl"],3,"Judea Pearl handled uncertainty in a principled way.","جوديا بيرل: التعامل مع عدم اليقين."],
+["Actuators let an agent…",["Perform actions","Sense the environment","Store data","Compute utility"],0,"Sensors sense; actuators act.","المستشعرات تدرك والمحركات تنفذ."],
+["“Data is the new oil” means data…",["Is free","Replaces algorithms","Is always accurate","Fuels AI and innovation"],3,"Data trains models to find patterns and predict.","البيانات تدرب النماذج لاكتشاف الأنماط والتنبؤ."],
+["Which discipline gave AI utility and decision theory?",["Economics","Linguistics","Neuroscience","Control theory"],0,"Economics: utility, decision theory.","الاقتصاد: المنفعة ونظرية القرار."],
+["Acting Rationally may treat the system as…",["A transparent logic proof","A black box","A human mimic","A rule list"],1,"The engineering approach focuses on outcomes.","النهج الهندسي يركز على النتائج."],
+["HAL’s ability to diagnose on-board problems maps to…",["NLP","Computer Vision","Facial Recognition","ML"],3,"Diagnosis ← ML.","التشخيص ← التعلم الآلي."],
+["Neural network research returned to popularity in…",["1966","1986","1969","1943"],1,"1986: neural networks return.","1986: عودة الشبكات العصبية."],
+["Deep learning’s Turing Award (2019) went to…",["Bengio, Hinton, LeCun","Feigenbaum, Reddy","Minsky, McCarthy","Pearl"],0,"Bengio, Hinton and LeCun.","بنجيو وهينتون ولوكون."],
+["Satisficing is associated with…",["Alan Turing","John McCarthy","Herbert Simon","Judea Pearl"],2,"Herbert Simon: good-enough decisions.","هربرت سايمون: قرارات كافية."]];
+document.getElementById("nav").innerHTML=S.map(function(s){return "<a href='#"+s[0]+"'>"+L(s[1],s[2])+"</a>"}).join("")+"<div class='tg' role='group' aria-label='Language'><button class='on' data-l=''>AR + EN</button><button data-l='ar'>عربي</button><button data-l='en'>EN</button></div>";
+document.getElementById("app").innerHTML=S.map(function(s){return s[3]}).join("");
+document.getElementById("fcs").innerHTML=F.map(function(f){return "<button class='fc'><span><em>"+L(f[0],f[1])+"</em></span></button>"}).join("");
+document.querySelectorAll(".fc").forEach(function(b,i){b.onclick=function(){b.classList.toggle("f");b.firstChild.firstChild.innerHTML=b.classList.contains("f")?L(F[i][2],F[i][3]):L(F[i][0],F[i][1])}});
+var sc=0,dn=0,sd=document.getElementById("score");
+function build(){sc=0;dn=0;sd.textContent="0 / "+Q.length;document.getElementById("qs").innerHTML="";
+Q.forEach(function(q,i){var d=document.createElement("div");d.className="q";
+d.innerHTML="<p><b>Q"+(i+1)+".</b> "+q[0]+"</p>"+q[1].map(function(o,j){return "<button data-j='"+j+"'>"+o+"</button>"}).join("")+"<div class='fb'>"+L(q[3],q[4])+"</div>";
+d.querySelectorAll("button").forEach(function(b){b.onclick=function(){var j=+b.dataset.j,bs=d.querySelectorAll("button");
+bs.forEach(function(x){x.disabled=true});bs[q[2]].classList.add("ok");
+if(j===q[2])sc++;else b.classList.add("no");
+d.classList.add("d");dn++;sd.textContent=sc+" / "+Q.length+(dn===Q.length?(sc>=Q.length*0.8?" 🔥 ممتاز / Great":" راجع / Review"):"")}});
+document.getElementById("qs").appendChild(d)})}
+build();document.getElementById("rs").onclick=build;
+document.querySelectorAll(".tg button").forEach(function(b){b.onclick=function(){document.querySelectorAll(".tg button").forEach(function(x){x.classList.remove("on")});b.classList.add("on");document.body.className=b.dataset.l}});
+</script>
+</body>
+</html>

@@ -69,6 +69,7 @@ td span[lang=en]{margin-bottom:4px}.tl li span[lang=en]{direction:ltr;text-align
 .hero p span[lang=en]{direction:ltr;color:var(--mut)}
 nav a span{display:inline}nav a span+span:before{content:" | "}body.en nav a span+span:before,body.ar nav a span+span:before{content:""}
 .fc em span{display:block}
+nav a.home{background:var(--or);color:#000;border-color:var(--or);font-weight:700}
 </style>
 </head>
 <body>
@@ -212,7 +213,7 @@ var Q=[["Which approach does this course focus on, with agents acting to achieve
 ["Neural network research returned to popularity in…",["1966","1986","1969","1943"],1,"1986: neural networks return.","1986: عودة الشبكات العصبية."],
 ["Deep learning’s Turing Award (2019) went to…",["Bengio, Hinton, LeCun","Feigenbaum, Reddy","Minsky, McCarthy","Pearl"],0,"Bengio, Hinton and LeCun.","بنجيو وهينتون ولوكون."],
 ["Satisficing is associated with…",["Alan Turing","John McCarthy","Herbert Simon","Judea Pearl"],2,"Herbert Simon: good-enough decisions.","هربرت سايمون: قرارات كافية."]];
-document.getElementById("nav").innerHTML=S.map(function(s){return "<a href='#"+s[0]+"'>"+L(s[1],s[2])+"</a>"}).join("")+"<div class='tg' role='group' aria-label='Language'><button class='on' data-l=''>AR + EN</button><button data-l='ar'>عربي</button><button data-l='en'>EN</button></div>";
+document.getElementById("nav").innerHTML="<a class='home' href='index.html'>🏠 "+L("Home","الرئيسية")+"</a>"+S.map(function(s){return "<a href='#"+s[0]+"'>"+L(s[1],s[2])+"</a>"}).join("")+"<div class='tg' role='group' aria-label='Language'><button class='on' data-l=''>AR + EN</button><button data-l='ar'>عربي</button><button data-l='en'>EN</button></div>";
 document.getElementById("app").innerHTML=S.map(function(s){return s[3]}).join("");
 document.getElementById("fcs").innerHTML=F.map(function(f){return "<button class='fc'><span><em>"+L(f[0],f[1])+"</em></span></button>"}).join("");
 document.querySelectorAll(".fc").forEach(function(b,i){b.onclick=function(){b.classList.toggle("f");b.firstChild.firstChild.innerHTML=b.classList.contains("f")?L(F[i][2],F[i][3]):L(F[i][0],F[i][1])}});

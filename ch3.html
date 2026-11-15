@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دليل دراسة الذكاء الاصطناعي – الفصل 3</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Cairo:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#000;--panel:#140b05;--line:#3a1d0a;--or:#ff7a1a;--ord:#d9480f;--tx:#f4ede6;--mut:#b3a191;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 17px/1.8 Cairo,Tahoma,sans-serif}
+h1,h2,h3{font-family:"Chakra Petch",Cairo,sans-serif;line-height:1.3;margin:0 0 .5em}
+h1{font-size:clamp(34px,7vw,64px)}h2{font-size:clamp(24px,4vw,34px);color:var(--or)}h3{font-size:20px}
+main{max-width:1000px;margin:auto;padding:0 18px 60px}
+section{padding:38px 0 10px;border-top:1px solid var(--line)}
+nav{position:sticky;top:0;z-index:5;background:#000e;backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:8px 12px;display:flex;gap:8px;overflow-x:auto;align-items:center}
+nav a,.tg button{white-space:nowrap;color:var(--tx);text-decoration:none;font-size:14px;padding:4px 12px;border:1px solid var(--line);border-radius:20px;background:none;cursor:pointer;font-family:inherit}
+nav a:hover,.tg button.on{background:var(--or);color:#000;border-color:var(--or)}
+:focus-visible{outline:2px solid var(--or);outline-offset:2px}
+.tg{margin-inline-start:auto;display:flex;gap:6px}
+.hero{padding:50px 0 30px;text-align:center}
+.hero p{color:var(--mut);max-width:60ch;margin:8px auto}
+.hero svg{width:100%;max-width:560px;height:auto}
+.bi{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.bi>div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+.bi [lang=en]{direction:ltr;text-align:left;font-family:"Chakra Petch",sans-serif;font-weight:500;font-size:15.5px;line-height:1.7}
+.bi [lang=ar]{border-inline-start:3px solid var(--or)}
+body.en .bi{grid-template-columns:1fr}body.en [lang=ar].x,body.en .bi>[lang=ar]{display:none}
+body.ar .bi{grid-template-columns:1fr}body.ar .bi>[lang=en]{display:none}
+.bi p{margin:0 0 .5em}.bi ul{margin:0;padding-inline-start:20px}
+b,.k{color:var(--or)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0}
+.c{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:15px;line-height:1.6}
+.c i{font-style:normal;font-size:28px;display:block}.c h3{font-size:16px;margin:2px 0;color:var(--or)}
+.c small{display:block;color:var(--mut);direction:ltr;text-align:left;font-family:"Chakra Petch",sans-serif}
+.ex{border:1px dashed var(--or);border-radius:10px;padding:10px 16px;margin:14px 0;background:#ff7a1a0d}
+.ex:before{content:"مثال / Example";color:var(--or);font-weight:800;display:block}
+.warn{border:1px solid var(--ord);border-radius:10px;padding:10px 16px;margin:14px 0;background:#d9480f1a}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+.wrap{overflow-x:auto}th,td{border:1px solid var(--line);padding:8px 12px;text-align:start;vertical-align:top}th{background:var(--ord);color:#000}td:first-child{color:var(--or);font-weight:600}
+svg text{font-family:"Chakra Petch",Cairo,sans-serif;fill:var(--tx)}
+.quad{width:100%;max-width:640px;display:block;margin:10px auto}
+.tl{list-style:none;padding:0;margin:14px 0;border-inline-start:2px solid var(--ord)}
+.tl li{padding:2px 18px 10px;position:relative}.tl li:before{content:"";position:absolute;inset-inline-start:-7px;top:12px;width:12px;height:12px;border-radius:50%;background:var(--or)}
+.tl b{font-family:"Chakra Petch",sans-serif;direction:ltr;unicode-bidi:isolate}
+.fc{perspective:900px;min-height:130px;cursor:pointer;border:0;background:none;padding:0;color:inherit;font:inherit;text-align:center}
+.fc>span{display:flex;align-items:center;justify-content:center;min-height:130px;padding:12px;border-radius:10px;border:1px solid var(--or);background:var(--panel);transition:transform .4s,background .3s}
+.fc.f>span{background:var(--ord);color:#000;transform:rotateY(180deg)}.fc.f>span>em{transform:rotateY(180deg)}
+.fc em{font-style:normal;font-size:15px;line-height:1.6}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:14px 0}
+.q p{margin:0 0 8px;direction:ltr;text-align:left;font-family:"Chakra Petch",sans-serif}
+.q button{display:block;width:100%;direction:ltr;text-align:left;margin:6px 0;padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:#000;color:var(--tx);font:500 15px "Chakra Petch",sans-serif;cursor:pointer}
+.q button:hover:not(:disabled){border-color:var(--or)}
+.q button.ok{background:#1f6b2e;border-color:#4ade80;color:#fff}.q button.no{background:#7a1a12;border-color:#f87171;color:#fff}
+.q .fb{display:none;color:var(--mut);margin-top:8px;font-size:15px}.q.d .fb{display:block}
+#score{position:sticky;bottom:10px;margin:18px auto 0;width:max-content;background:var(--or);color:#000;font-weight:800;padding:6px 20px;border-radius:20px}
+.rb{background:var(--or);color:#000;border:0;border-radius:8px;padding:8px 20px;font:800 16px Cairo;cursor:pointer}
+@media(max-width:700px){.bi{grid-template-columns:1fr}body{font-size:16px}}
+@media(prefers-reduced-motion:no-preference){.pl{animation:p 2.4s infinite}@keyframes p{50%{opacity:.25}}}
+
+body.en [lang=ar]{display:none}body.ar [lang=en]{display:none}
+.c span,td span,th span,.ex span,.warn span,h2 span,h3 span,li>span,.hero p span{display:block}
+.c span[lang=en],td span[lang=en]{direction:ltr;text-align:left;font-family:"Chakra Petch",sans-serif;font-size:14px;color:var(--mut)}
+.c h3 span[lang=en],h2 span[lang=en],h3 span[lang=en]{color:var(--or);font-family:"Chakra Petch",sans-serif;direction:ltr}
+.c h3 span[lang=en]{font-size:15px}h2 span[lang=en]{font-size:.7em;color:var(--mut)}
+.c ul,td ul{margin:4px 0;padding-inline-start:18px}.c span[lang=en] ul{padding-inline-start:0;padding-left:18px}
+td span[lang=en]{margin-bottom:4px}.tl li span[lang=en]{direction:ltr;text-align:left;font-size:14px;color:var(--mut)}
+.hero p span[lang=en]{direction:ltr;color:var(--mut)}
+nav a span{display:inline}nav a span+span:before{content:" | "}body.en nav a span+span:before,body.ar nav a span+span:before{content:""}
+.fc em span{display:block}
+nav a.home{background:var(--or);color:#000;border-color:var(--or);font-weight:700}
+
+.st td,.st th{direction:ltr;text-align:left;font-family:'Chakra Petch',monospace;font-size:14px}
+.st td:first-child{color:var(--or)}
+.res{display:flex;gap:10px;flex-wrap:wrap;direction:ltr;margin:10px 0}
+.res span{border:1px solid var(--or);border-radius:8px;padding:2px 12px;background:#ff7a1a14;font-family:'Chakra Petch',sans-serif;font-size:14px}
+u{text-decoration-color:var(--or);text-underline-offset:3px}
+</style>
+</head>
+<body>
+<nav id="nav"></nav>
+<main>
+<header class="hero">
+<svg viewBox="0 0 560 150" role="img" aria-label="Search tree">
+<g stroke="#d9480f" stroke-width="1.4"><path d="M280 20L160 70M280 20L400 70M160 70L90 125M160 70L230 125M400 70L330 125M400 70L470 125"/></g>
+<g fill="#ff7a1a"><circle cx="280" cy="20" r="11"/><circle cx="160" cy="70" r="9"/><circle class="pl" cx="400" cy="70" r="9"/><circle cx="90" cy="125" r="8"/><circle cx="230" cy="125" r="8"/><circle class="pl" cx="330" cy="125" r="8"/><circle cx="470" cy="125" r="11"/></g>
+<text x="305" y="25" font-size="12">S</text><text x="495" y="130" font-size="12">G</text>
+</svg>
+<h1>Solving Problems by Searching</h1>
+<p><b>دليل الدراسة الشامل: الفصل الثالث</b><br><span lang="en">Full study guide: slides plus every solved example from the handwritten notes, verified step by step.</span><span lang="ar">شرح كامل للسلايدات مع كل الأمثلة المحلولة من الملف المكتوب بخط اليد، وتم التحقق من كل حل خطوة بخطوة.</span></p>
+</header>
+<div id="app"></div>
+</main>
+<script>
+function L(e,a){return "<span lang='en'>"+e+"</span><span lang='ar'>"+a+"</span>"}
+function bi(e,a){return "<div class='bi'><div lang='en'>"+e+"</div><div lang='ar'>"+a+"</div></div>"}
+function ul(x){return "<ul>"+x.map(function(i){return "<li>"+i+"</li>"}).join("")+"</ul>"}
+function sh(e,a){return "<h3>"+L(e,a)+"</h3>"}
+function ex(e,a){return "<div class='ex'>"+L(e,a)+"</div>"}
+function wn(e,a){return "<div class='warn'>⚠️ "+L(e,a)+"</div>"}
+function cards(r){return "<div class='grid'>"+r.map(function(c){return "<div class='c'><i>"+c[0]+"</i><h3>"+L(c[1],c[2])+"</h3>"+L(c[3]||"",c[4]||"")+"</div>"}).join("")+"</div>"}
+function tbl(h,r){return "<div class='wrap'><table><tr>"+h.map(function(x){return "<th>"+L(x[0],x[1])+"</th>"}).join("")+"</tr>"+r.map(function(row){return "<tr>"+row.map(function(x){return "<td>"+L(x[0],x[1])+"</td>"}).join("")+"</tr>"}).join("")+"</table></div>"}
+function st(h,r){return "<div class='wrap'><table class='st'><tr>"+h.map(function(x){return "<th>"+x+"</th>"}).join("")+"</tr>"+r.map(function(row){return "<tr>"+row.map(function(x){return "<td>"+x+"</td>"}).join("")+"</tr>"}).join("")+"</table></div>"}
+function res(v,p,c){return "<div class='res'><span><b>Visited:</b> "+v+"</span><span><b>Path:</b> "+p+"</span><span><b>Cost:</b> "+c+"</span></div>"}
+function sec(id,e,a,h){return "<section id='"+id+"'><h2>"+L(e,a)+"</h2>"+h+"</section>"}
+function gr(w,h,N,E,hl){hl=hl||[];var s="<svg class='quad' viewBox='0 0 "+w+" "+h+"' role='img' aria-label='graph'>";
+E.forEach(function(e){var a=N[e[0]],b=N[e[1]],i=hl.indexOf(e[0]),j=hl.indexOf(e[1]),on=i>=0&&j>=0&&Math.abs(i-j)==1;
+s+="<line x1='"+a[0]+"' y1='"+a[1]+"' x2='"+b[0]+"' y2='"+b[1]+"' stroke='"+(on?"#ff7a1a":"#6b3a1c")+"' stroke-width='"+(on?4:1.6)+"'/>";
+if(e[2]!==undefined)s+="<text x='"+((a[0]+b[0])/2+4)+"' y='"+((a[1]+b[1])/2-5)+"' font-size='12' text-anchor='middle' style='fill:#ffb36b'>"+e[2]+"</text>"});
+for(var k in N){var n=N[k],on=hl.indexOf(k)>=0;
+s+="<circle cx='"+n[0]+"' cy='"+n[1]+"' r='15' fill='"+(on?"#d9480f":"#140b05")+"' stroke='#ff7a1a' stroke-width='1.5'/><text x='"+n[0]+"' y='"+(n[1]+5)+"' font-size='14' font-weight='700' text-anchor='middle' style='fill:"+(on?"#000":"#f4ede6")+"'>"+(n[3]||k)+"</text>";
+if(n[2])s+="<text x='"+n[0]+"' y='"+(n[1]+31)+"' font-size='11' text-anchor='middle' style='fill:#b3a191'>"+n[2]+"</text>"}
+return s+"</svg>"}
+var S=[];
+S.push(["intro","Intro","مقدمة",sec("intro","Chapter 3: Solving Problems by Searching","الفصل الثالث: حل المشكلات بالبحث",
+sh("Chapter Objectives","أهداف الفصل")+
+bi(ul(["Formulate problems for a problem-solving agent as search tasks: <b>initial state, operators (actions), goal test, path cost</b>.","Know the fundamental search strategies: <b>uninformed</b> and <b>informed</b>.","Evaluate the suitability of a search strategy for a problem."]),ul(["صياغة مشكلات الوكيل الحلّال للمشكلات كمهام بحث: <b>الحالة الابتدائية، العوامل (الأفعال)، اختبار الهدف، تكلفة المسار</b>.","معرفة استراتيجيات البحث الأساسية: <b>غير المستنيرة</b> و<b>المستنيرة</b>.","تقييم مدى ملاءمة استراتيجية البحث لمشكلة معينة."]))+
+sh("Chapter Outline","محتوى الفصل")+
+bi(ul(["Problem-solving agents","Problem types, formulation and examples","Basic search algorithms","<b>Uninformed (blind) search:</b> given no information about the problem other than its definition","<b>Informed (heuristic) search:</b> has some idea where to look and whether one non-goal state is more promising than another"]),ul(["الوكلاء الحلّالون للمشكلات","أنواع المشكلات وصياغتها وأمثلة","خوارزميات البحث الأساسية","<b>البحث غير المستنير (الأعمى):</b> لا يعرف شيئًا عن المشكلة سوى تعريفها","<b>البحث المستنير (الهيوريستك):</b> لديه فكرة عن مكان البحث وأي حالة غير هدف أكثر وعدًا من غيرها"]))+
+sh("Problem Solving, Search and Control","حل المشكلات والبحث والتحكم")+
+bi(ul(["<b>Problem solving:</b> a process of generating solutions from observed data.","Simple problems (area of a rectangle, sine of an angle, square root) are solved by a deterministic procedure and success is guaranteed.","Real-world problems rarely have straightforward solutions: most can be solved only by <b>searching</b> for a solution."]),ul(["<b>حل المشكلات:</b> عملية توليد حلول من البيانات المرصودة.","المشكلات البسيطة (مساحة مستطيل، جيب زاوية، جذر تربيعي) تُحل بإجراء حتمي ونجاحها مضمون.","مشكلات العالم الحقيقي نادرًا ما لها حل مباشر: معظمها لا يُحل إلا بـ<b>البحث</b> عن الحل."]))+
+sh("Why Search?","لماذا البحث؟")+
+bi(ul(["<b>Search</b> = finding a good/best solution among many possible solutions. If the goal is found: success; else: failure.","Many AI problems can be posed as search: game playing (sequence of moves to win), speech recognition (sequence of moves to recognize speech), shortest path on a map."]),ul(["<b>البحث</b> = إيجاد حل جيد/أفضل حل من بين حلول كثيرة ممكنة. إذا وُجد الهدف: نجاح، وإلا: فشل.","كثير من مشكلات الذكاء الاصطناعي تُصاغ كبحث: لعب الألعاب (تسلسل نقلات للفوز)، التعرف على الكلام، أقصر مسار على خريطة."]))
+)]);
+S.push(["agent","Agent","الوكيل",sec("agent","Problem-Solving Agents","الوكلاء الحلّالون للمشكلات",
+bi("<p>A <b>goal-based agent</b> that finds a <b>sequence of actions</b> to achieve a goal: <b>search, then execute</b>. The process has four phases.</p>","<p><b>وكيل قائم على الهدف</b> يجد <b>تسلسل أفعال</b> لتحقيق هدف: <b>يبحث ثم ينفذ</b>. للعملية أربع مراحل.</p>")+
+"<svg class='quad' viewBox='0 0 640 90' role='img' aria-label='Four phases'><g fill='#140b05' stroke='#d9480f' stroke-width='1.5'><rect x='5' y='20' width='140' height='50' rx='8'/><rect x='170' y='20' width='140' height='50' rx='8'/><rect x='335' y='20' width='140' height='50' rx='8'/><rect x='500' y='20' width='135' height='50' rx='8'/></g><g stroke='#ff7a1a' stroke-width='2'><path d='M145 45H168M310 45H333M475 45H498'/></g><g font-size='13' text-anchor='middle'><text x='75' y='41'>1 Goal</text><text x='75' y='58'>Formulation</text><text x='240' y='41'>2 Problem</text><text x='240' y='58'>Formulation</text><text x='405' y='50'>3 Search</text><text x='567' y='50'>4 Execution</text></g></svg>"+
+tbl([["Phase","المرحلة"],["What happens","ماذا يحدث"]],[
+[["1. Goal formulation","1. صياغة الهدف"],["What is the goal state? Its important characteristics? How does the agent know it reached the goal? Several goal states? Equal or some preferable?","ما هي حالة الهدف؟ ما خصائصها المهمة؟ كيف يعرف الوكيل أنه وصل؟ هل توجد عدة حالات هدف؟ متساوية أم بعضها مفضل؟"]],
+[["2. Problem formulation","2. صياغة المشكلة"],["Describe the states and actions needed: an abstract model of the relevant part of the world. Which states are relevant? What information is accessible? How can the agent move from state to state?","وصف الحالات والأفعال اللازمة: نموذج مجرد للجزء المهم من العالم. ما الحالات المتعلقة؟ ما المعلومات المتاحة؟ كيف ينتقل الوكيل من حالة لأخرى؟"]],
+[["3. Search","3. البحث"],["Simulate sequences of actions in the model until one reaches the goal. That sequence is a <b>solution</b> (a plan that transforms the start state to a goal state). The search algorithm takes the problem and returns an action sequence.","محاكاة تسلسلات الأفعال في النموذج حتى يصل أحدها للهدف. هذا التسلسل هو <b>الحل</b> (خطة تحول حالة البداية إلى حالة هدف). خوارزمية البحث تأخذ المشكلة وتعيد تسلسل أفعال."]],
+[["4. Execution","4. التنفيذ"],["The agent executes the actions in the solution, one at a time.","ينفذ الوكيل أفعال الحل واحدًا تلو الآخر."]]])+
+sh("Requirements of a Good Search Strategy","متطلبات استراتيجية بحث جيدة")+
+bi(ul(["<b>It causes motion:</b> otherwise it never leads to a solution.","<b>It is systematic:</b> otherwise it may use more steps than necessary.","<b>It is efficient:</b> finds a good, but not necessarily the best, answer."]),ul(["<b>تُحدث حركة:</b> وإلا فلن تصل لحل أبدًا.","<b>منهجية:</b> وإلا قد تستخدم خطوات أكثر من اللازم.","<b>كفؤة:</b> تجد إجابة جيدة وليس بالضرورة الأفضل."]))
+)]);
+S.push(["problem","Problems","صياغة المشكلة",sec("problem","Search Problems and Formulation","مشكلات البحث وصياغتها",
+sh("Formal Definition","التعريف الرسمي")+
+tbl([["Component","المكوّن"],["Meaning","المعنى"]],[
+[["State space","فضاء الحالات"],["Set of all states the environment can be in (all states reachable from the initial state).","مجموعة كل الحالات الممكنة للبيئة (كل الحالات الممكن الوصول إليها من الحالة الابتدائية)."]],
+[["Initial state","الحالة الابتدائية"],["Where the agent starts, e.g. In(Arad).","نقطة بداية الوكيل، مثل In(Arad)."]],
+[["Goal state(s)","حالة/حالات الهدف"],["One goal or a small set of alternative goal states.","هدف واحد أو مجموعة صغيرة من الأهداف البديلة."]],
+[["ACTIONS(s)","الأفعال"],["Returns the finite set of actions applicable in s.","تعيد المجموعة المنتهية من الأفعال القابلة للتنفيذ في الحالة s."]],
+[["Transition model RESULT(s,a)","نموذج الانتقال"],["The state that results from doing action a in state s (successor function).","الحالة الناتجة عن تنفيذ الفعل a في الحالة s (دالة الخلفاء)."]],
+[["Action cost ACTION-COST(s,a,s′)","تكلفة الفعل"],["Numeric cost of applying a in s to reach s′. It should reflect the agent’s performance measure (miles, time...).","التكلفة العددية لتطبيق a في s للوصول إلى s′. يجب أن تعكس مقياس أداء الوكيل (أميال، زمن...)."]],
+[["Goal test","اختبار الهدف"],["Determines whether a given state is a goal state.","يحدد هل الحالة المعطاة هي حالة هدف."]],
+[["Path cost","تكلفة المسار"],["Sum of action costs along the path. An <b>optimal solution</b> has the lowest path cost.","مجموع تكاليف الأفعال على المسار. <b>الحل الأمثل</b> هو الأقل تكلفة."]]])+
+sh("Example: Traveling in Romania","مثال: السفر في رومانيا")+
+bi(ul(["<b>States:</b> cities. <b>Successor function:</b> roads, go to an adjacent city with cost = distance.","<b>Start:</b> Arad. <b>Goal test:</b> is state == Bucharest?","Actions(In(Arad)) = {Go(Sibiu), Go(Timisoara), Go(Zerind)}","Result(In(Arad), Go(Zerind)) = In(Zerind)"]),ul(["<b>الحالات:</b> المدن. <b>دالة الخلفاء:</b> الطرق، الانتقال لمدينة مجاورة بتكلفة = المسافة.","<b>البداية:</b> Arad. <b>اختبار الهدف:</b> هل الحالة == Bucharest؟","Actions(In(Arad)) = {Go(Sibiu), Go(Timisoara), Go(Zerind)}","Result(In(Arad), Go(Zerind)) = In(Zerind)"]))+
+sh("What’s in a State Space? (Abstraction)","ماذا يوجد في فضاء الحالات؟ (التجريد)")+
+bi("<p>The <b>world state</b> includes every last detail of the environment; a <b>search state</b> keeps only the details needed for planning.</p>","<p><b>حالة العالم</b> تشمل كل تفصيلة في البيئة، أما <b>حالة البحث</b> فتحتفظ فقط بالتفاصيل اللازمة للتخطيط.</p>")+
+tbl([["Problem","المشكلة"],["States / Actions / Goal test","الحالات / الأفعال / اختبار الهدف"]],[
+[["Pathing","إيجاد مسار"],["States: (x,y) location. Actions: N,S,E,W. Successor: update location only. Goal: (x,y)=END.","الحالات: الموقع (x,y). الأفعال: شمال جنوب شرق غرب. الخلف: تحديث الموقع فقط. الهدف: (x,y)=END."]],
+[["Eat-All-Dots","أكل كل النقاط"],["States: {(x,y), dot booleans}. Actions: N,S,E,W. Successor: update location and possibly a dot boolean. Goal: all dots false.","الحالات: {(x,y)، قيم النقاط المنطقية}. الأفعال: نفسها. الخلف: تحديث الموقع وربما قيمة نقطة. الهدف: كل النقاط false."]]])+
+sh("Example: Vacuum World","مثال: عالم المكنسة")+
+bi(ul(["<b>States:</b> agent location and dirt locations: 2 × 2 × 2 = <b>8</b> world states.","<b>Initial state:</b> any state.","<b>Actions:</b> Left, Right, Suck (L, R, S).","<b>Transition model:</b> actions have expected effects, except Left in the leftmost square, Right in the rightmost square and Suck in a clean square: no effect.","<b>Goal test:</b> all squares clean. <b>Path cost:</b> each step costs 1."]),ul(["<b>الحالات:</b> موقع الوكيل ومواقع الأوساخ: 2 × 2 × 2 = <b>8</b> حالات.","<b>الحالة الابتدائية:</b> أي حالة.","<b>الأفعال:</b> يسار، يمين، شفط (L, R, S).","<b>نموذج الانتقال:</b> للأفعال أثرها المتوقع، عدا اليسار في أقصى اليسار واليمين في أقصى اليمين والشفط في مربع نظيف فلا أثر لها.","<b>اختبار الهدف:</b> كل المربعات نظيفة. <b>تكلفة المسار:</b> كل خطوة بتكلفة 1."]))+
+sh("Example: The 8-Puzzle","مثال: لغز الـ 8")+
+bi(ul(["<b>Initial state:</b> any state. <b>Actions:</b> movements of the blank: Left, Right, Up, Down.","<b>Transition model:</b> returns the resulting state. <b>Goal test:</b> matches the goal configuration. <b>Path cost:</b> 1 per step."]),ul(["<b>الحالة الابتدائية:</b> أي حالة. <b>الأفعال:</b> حركات الفراغ: يسار، يمين، أعلى، أسفل.","<b>نموذج الانتقال:</b> يعيد الحالة الناتجة. <b>اختبار الهدف:</b> مطابقة الترتيب الهدف. <b>تكلفة المسار:</b> 1 لكل خطوة."]))+
+sh("Think, then Formulate","فكّر ثم صُغ")+
+bi(ul(["<b>8-queens</b> (place 8 queens so none attacks another; a queen attacks same row, column, diagonal). One formulation: <b>States:</b> any arrangement of 0 to 8 queens. <b>Initial:</b> no queens. <b>Actions:</b> add a queen to an empty square. <b>Transition:</b> board with the queen added. <b>Goal:</b> 8 queens, none attacked. <b>Cost:</b> irrelevant.","<b>Water jug</b> (4 L and 3 L jugs, no markings, a pump; get exactly 2 L into the 4 L jug). State = (x, y) liters in (4 L, 3 L). Actions: fill, empty, pour. Goal: x = 2."]),ul(["<b>الملكات الثماني</b> (ضع 8 ملكات بحيث لا تهاجم إحداها الأخرى؛ الملكة تهاجم نفس الصف والعمود والقطر). صياغة ممكنة: <b>الحالات:</b> أي ترتيب لـ 0 إلى 8 ملكات. <b>البداية:</b> لا ملكات. <b>الأفعال:</b> إضافة ملكة لمربع فارغ. <b>الانتقال:</b> اللوحة بعد الإضافة. <b>الهدف:</b> 8 ملكات دون هجوم. <b>التكلفة:</b> غير مهمة.","<b>إبريقا الماء</b> (4 لتر و3 لتر بلا علامات ومضخة؛ المطلوب 2 لتر بالضبط في إبريق 4). الحالة = (x, y) لترات في (4، 3). الأفعال: ملء، تفريغ، سكب. الهدف: x = 2."]))+
+st(["Step","(x, y)","Action"],[["0","(0,0)","start"],["1","(0,3)","fill the 3 L jug"],["2","(3,0)","pour 3 L into the 4 L jug"],["3","(3,3)","fill the 3 L jug"],["4","(4,2)","pour into the 4 L jug until full (1 L fits)"],["5","(0,2)","empty the 4 L jug"],["6","(2,0)","pour the 2 L into the 4 L jug: goal"]])
+)]);
+S.push(["trees","Search Trees","أشجار البحث",sec("trees","Searching for Solutions","البحث عن الحلول",
+sh("State Space Graphs vs Search Trees","رسم فضاء الحالات مقابل شجرة البحث")+
+tbl([["","" ],["State space graph","رسم فضاء الحالات"],["Search tree","شجرة البحث"]],[
+[["Nodes","العقد"],["Abstracted world configurations; each state occurs only once.","تشكيلات مجردة للعالم؛ كل حالة تظهر مرة واحدة."],["Each node is an entire <b>PATH</b> (a plan) in the state space graph; the root is the start state.","كل عقدة هي <b>مسار</b> كامل (خطة) في رسم فضاء الحالات؛ الجذر هو حالة البداية."]],
+[["Edges","الحواف"],["Arcs = successors (action results). The goal test is a set of goal nodes.","الأقواس = الخلفاء (نتائج الأفعال). اختبار الهدف مجموعة عقد هدف."],["Children = successors. A “what if” tree of plans and their outcomes.","الأبناء = الخلفاء. شجرة “ماذا لو” للخطط ونتائجها."]],
+[["Size","الحجم"],["Rarely built in memory (too big), but a useful idea.","نادرًا ما يُبنى في الذاكرة (كبير جدًا) لكنه فكرة مفيدة."],["Never built completely; lots of repeated structure, can even be infinite with cycles.","لا تُبنى كاملة؛ فيها تكرار كبير وقد تكون لا نهائية مع وجود دورات."]]])+
+bi("<p>We construct both <b>on demand</b>, and as little as possible.</p>","<p>نبني الاثنين <b>عند الحاجة</b> وبأقل قدر ممكن.</p>")+
+sh("General Tree Search","البحث العام في الشجرة")+
+bi(ul(["<b>Fringe:</b> nodes generated but not yet expanded. <b>Expansion:</b> generate a node’s children. <b>Exploration strategy:</b> which fringe node to expand next.","Search = expand potential plans, maintain a fringe of partial plans, try to expand as few nodes as possible. The <b>search strategy</b> is the choice of which state to expand.","Fundamental operators: <b>Expand</b> (ask a node for its children) and <b>Test</b> (is it a goal?)."]),ul(["<b>الحافة (Fringe):</b> عقد وُلدت ولم تُوسَّع بعد. <b>التوسيع:</b> توليد أبناء العقدة. <b>استراتيجية الاستكشاف:</b> أي عقدة من الحافة نوسّع تاليًا.","البحث = توسيع الخطط المحتملة مع الحفاظ على حافة من الخطط الجزئية، وتوسيع أقل عدد ممكن من العقد. <b>استراتيجية البحث</b> هي اختيار أي حالة نوسّع.","العمليات الأساسية: <b>توسيع</b> (طلب أبناء العقدة) و<b>اختبار</b> (هل هي هدف؟)."]))+
+tbl([["Node set","مجموعة العقد"],["Meaning","المعنى"]],[
+[["Undiscovered","غير مكتشفة"],["Not yet discovered as reachable from the root.","لم تُكتشف بعد كقابلة للوصول من الجذر."]],
+[["Fringe (Open)","الحافة (مفتوحة)"],["Discovered but not yet processed: not expanded, not tested as goal.","مكتشفة ولم تُعالج بعد: لم تُوسَّع ولم تُختبر كهدف."]],
+[["Visited (Closed)","المزارة (مغلقة)"],["Discovered and processed: children discovered, goal test done.","مكتشفة ومعالجة: اكتُشف أبناؤها وتم اختبارها."]]])+
+sh("Evaluation Criteria","معايير التقييم")+
+bi(ul(["<b>Completeness:</b> if a solution exists, will it be found?","<b>Optimality:</b> will the best (least-cost) solution be found?","<b>Time complexity:</b> how long to find the solution.","<b>Space complexity:</b> memory required.","<b>b</b> = branching factor, <b>d</b> (or s) = depth of the shallowest solution, <b>m</b> = maximum depth."]),ul(["<b>الاكتمال:</b> إذا وُجد حل هل سيُوجد؟","<b>الأمثلية:</b> هل سيوجد أفضل حل (الأقل تكلفة)؟","<b>تعقيد الزمن:</b> الوقت اللازم لإيجاد الحل.","<b>تعقيد المساحة:</b> الذاكرة المطلوبة.","<b>b</b> = معامل التفرع، <b>d</b> (أو s) = عمق أقرب حل، <b>m</b> = أقصى عمق."]))+
+sh("Strategies and Data Structures","الاستراتيجيات وهياكل البيانات")+
+bi(ul(["<b>Uninformed (blind):</b> BFS, DFS, UCS, depth-limited, iterative deepening, bidirectional. Number of steps and path cost unknown; the agent knows when it reaches a goal.","<b>Informed (heuristic):</b> greedy best-first, A*, memory-bounded heuristic search. The agent has background information (map, costs of actions).","Tree <b>node</b> fields: STATE, PARENT, ACTION, PATH-COST."]),ul(["<b>غير مستنيرة (عمياء):</b> BFS، DFS، UCS، محدودة العمق، التعميق التكراري، ثنائية الاتجاه. عدد الخطوات وتكلفة المسار مجهولان؛ يعرف الوكيل متى يصل للهدف.","<b>مستنيرة (هيوريستك):</b> أفضل-أولًا الجشع، A*، البحث الهيوريستك محدود الذاكرة. لدى الوكيل معلومات خلفية (خريطة، تكاليف الأفعال).","حقول <b>العقدة</b>: STATE, PARENT, ACTION, PATH-COST."]))+
+tbl([["Queueing function","دالة الطابور"],["Resulting search","البحث الناتج"]],[
+[["FIFO (First In, First Out)","FIFO (الداخل أولًا يخرج أولًا)"],["Breadth-First Search","البحث بالعرض"]],
+[["LIFO (Last In, First Out)","LIFO (الداخل أخيرًا يخرج أولًا)"],["Depth-First Search","البحث بالعمق"]],
+[["Priority queue by path cost so far","طابور أولوية حسب تكلفة المسار حتى الآن"],["Uniform-Cost Search","البحث بالتكلفة الموحدة"]],
+[["Depth-First with increasing limit","DFS مع زيادة الحد"],["Iterative Deepening","التعميق التكراري"]],
+[["BFS or UCS from both ends","BFS أو UCS من الطرفين"],["Bidirectional Search","البحث ثنائي الاتجاه"]]])
+)]);
+S.push(["blind","Uninformed","البحث الأعمى",sec("blind","Uninformed (Blind) Search","البحث غير المستنير (الأعمى)",
+sh("How to Solve the Open / Close Tables","كيف نحل جداول Open / Close")+
+bi(ul(["<b>I:</b> iteration number. <b>Found (x):</b> the node being expanded now.","<b>Open:</b> the fringe after adding x’s children; the first (underlined) node is tested/expanded next.","<b>Close:</b> nodes visited so far, including the front of Open. Stop when the node at the front is the goal.","Skip children already in Open or Close (graph search). Then read Path by following parents back from the goal and add edge costs for Cost."]),ul(["<b>I:</b> رقم التكرار. <b>Found (x):</b> العقدة التي تُوسَّع الآن.","<b>Open:</b> الحافة بعد إضافة أبناء x؛ أول عقدة (المسطّرة) هي التالية للاختبار/التوسيع.","<b>Close:</b> العقد المزارة حتى الآن بما فيها أول Open. نتوقف عندما تكون أول عقدة هي الهدف.","نتجاهل الأبناء الموجودين في Open أو Close (graph search). ثم نقرأ Path بالرجوع عبر الآباء من الهدف ونجمع تكاليف الحواف لـ Cost."]))+
+sh("Breadth-First Search (BFS)","البحث بالعرض (BFS)")+
+bi(ul(["Strategy: expand the <b>shallowest</b> node first; all nodes at level d before level d+1. Fringe = <b>FIFO queue</b> (new successors go to the end). “بالترتيب”: level by level.","Example order on the slide tree: A B C D E F G H I J K L M N O P Q, so J is found before N.","<b>Complete:</b> yes (s finite if a solution exists). <b>Optimal:</b> only if all costs are equal (e.g. 1). <b>Time:</b> O(b<sup>s</sup>). <b>Space:</b> O(b<sup>s</sup>) (roughly the last tier)."]),ul(["الاستراتيجية: توسيع العقدة <b>الأقل عمقًا</b> أولًا؛ كل عقد المستوى d قبل المستوى d+1. الحافة = <b>طابور FIFO</b> (الأبناء الجدد في النهاية). أي مستوى بعد مستوى.","مثال الترتيب على شجرة السلايد: A B C D E F G H I J K L M N O P Q فيُوجد J قبل N.","<b>مكتمل:</b> نعم (s منتهٍ إن وُجد حل). <b>أمثل:</b> فقط إذا كانت التكاليف متساوية (مثل 1). <b>الزمن:</b> O(b<sup>s</sup>). <b>المساحة:</b> O(b<sup>s</sup>) (تقريبًا المستوى الأخير)."]))+
+sh("Depth-First Search (DFS)","البحث بالعمق (DFS)")+
+bi(ul(["Strategy: expand the <b>deepest</b> node first; follow a path to a leaf then backtrack. Fringe = <b>LIFO stack</b> (put successors at the front). “بينزل كل شي تحت بعض”.","Example order on the slide tree: A B D B E H L H M H N H E I O I P I E B A C F C G J G K Q (including backtracking), so N is found before J.","<b>Complete:</b> no, if m is infinite unless cycles are prevented. <b>Optimal:</b> no, it finds the leftmost solution regardless of depth or cost. <b>Time:</b> O(b<sup>m</sup>) (may process the whole tree). <b>Space:</b> O(bm) (only siblings on the path to the root)."]),ul(["الاستراتيجية: توسيع العقدة <b>الأعمق</b> أولًا؛ نتبع مسارًا حتى ورقة ثم نرجع. الحافة = <b>مكدس LIFO</b> (الأبناء في المقدمة). ينزل كل فرع حتى النهاية.","مثال الترتيب على شجرة السلايد: A B D B E H L H M H N H E I O I P I E B A C F C G J G K Q (مع الرجوع) فيُوجد N قبل J.","<b>مكتمل:</b> لا، إذا كان m لا نهائيًا إلا مع منع الدورات. <b>أمثل:</b> لا، يجد الحل الأيسر بغض النظر عن العمق أو التكلفة. <b>الزمن:</b> O(b<sup>m</sup>) (قد يعالج الشجرة كلها). <b>المساحة:</b> O(bm) (الإخوة على المسار للجذر فقط)."]))+
+sh("Uniform-Cost Search (UCS)","البحث بالتكلفة الموحدة (UCS)")+
+bi(ul(["Strategy: expand the <b>cheapest</b> node first, the one with the smallest path cost <b>g(n)</b>. Fringe = <b>priority queue</b> by cumulative cost. Stop when the goal is <b>dequeued</b> (not when enqueued).","UCS is BFS extended to weighted graphs (UCS = BFS if all edges cost the same). <b>Complete:</b> yes. <b>Optimal:</b> yes. Time and space: O(b<sup>d</sup>) per the slides (every node in the fringe stays in the queue)."]),ul(["الاستراتيجية: توسيع العقدة <b>الأرخص</b> أولًا أي الأقل تكلفة مسار <b>g(n)</b>. الحافة = <b>طابور أولوية</b> بالتكلفة التراكمية. نتوقف عندما يُسحب الهدف <b>من الطابور</b> (وليس عند إضافته).","UCS هو BFS موسّع للرسوم الموزونة (UCS = BFS إذا تساوت التكاليف). <b>مكتمل:</b> نعم. <b>أمثل:</b> نعم. الزمن والمساحة: O(b<sup>d</sup>) حسب السلايدات (كل عقدة في الحافة تبقى في الطابور)."]))+
+ex("Slide example (edges as I read them: S-A 1, S-G 12, A-B 3, A-C 1, C-D 1, C-G 2, D-G 3, B-D 3). Iter 1: {[SA,1],[SG,12]}. Iter 2: {[SAB,4],[SAC,2],[SG,12]}. Iter 3: {[SAB,4],[SACD,3],[SACG,4],[SG,12]}. Iter 4: [SACDG,6] appears. Iter 5: [SABD,7]. Result: <b>SACG</b>, cost 4. The direct SG (12) was generated first but the cheaper path won.","مثال السلايد (الحواف كما قرأتها: S-A 1، S-G 12، A-B 3، A-C 1، C-D 1، C-G 2، D-G 3، B-D 3). الناتج: <b>SACG</b> بتكلفة 4. المسار المباشر SG (12) وُلد أولًا لكن المسار الأرخص فاز.")+
+sh("Depth-Limited and Iterative Deepening (IDS)","محدود العمق والتعميق التكراري")+
+bi(ul(["<b>Depth-limited:</b> DFS that does not expand beyond depth L (avoids DFS’s infinite-depth problem). If the solution is deeper than L: increase L.","<b>Iterative deepening:</b> run depth-limited for L = 0, 1, 2, ... “بتمشي بقالات وبطريقة DFS”: DFS each round with a larger limit.","Only the current path is kept in memory; nodes are regenerated each iteration. A general maximum depth guarantees termination if no solution. <b>Complete:</b> yes. <b>Optimal:</b> if costs are equal. <b>Time:</b> O(b<sup>d</sup>). <b>Space:</b> O(bd)."]),ul(["<b>محدود العمق:</b> DFS لا يوسّع بعد العمق L (يتجنب مشكلة العمق اللانهائي). إذا كان الحل أعمق من L: نزيد L.","<b>التعميق التكراري:</b> تشغيل محدود العمق مع L = 0, 1, 2, ... أي DFS في كل جولة بحد أكبر.","يُحفظ المسار الحالي فقط في الذاكرة وتُعاد توليد العقد في كل تكرار. حد أقصى عام يضمن الانتهاء إن لم يوجد حل. <b>مكتمل:</b> نعم. <b>أمثل:</b> إذا تساوت التكاليف. <b>الزمن:</b> O(b<sup>d</sup>). <b>المساحة:</b> O(bd)."]))+
+sh("Bidirectional Search","البحث ثنائي الاتجاه")+
+bi(ul(["Search forward from the start and backward from the goal at the same time; stop when the two frontiers meet.","Needs two frontiers and two tables of reached states, and the ability to reason backwards: if s is a successor of s′ forward, then s′ must be a successor of s backward.","Issues: operators must be reversible; there may be many goal states; check whether a node appears in the other tree; choose the best strategy for each half (BFS or UCS)."]),ul(["بحث للأمام من البداية وللخلف من الهدف في نفس الوقت؛ نتوقف عندما تلتقي الحافتان.","يحتاج حافتين وجدولين للحالات الواصلة والقدرة على الاستدلال للخلف: إذا كانت s خلفًا لـ s′ للأمام فيجب أن تكون s′ خلفًا لـ s للخلف.","المشكلات: العوامل يجب أن تكون عكوسة؛ قد توجد أهداف كثيرة؛ فحص ظهور العقدة في الشجرة الأخرى؛ اختيار الاستراتيجية الأفضل لكل نصف (BFS أو UCS)."]))+
+sh("Summary of Blind Algorithms","ملخص الخوارزميات العمياء")+
+tbl([["Algorithm","الخوارزمية"],["Queue","الطابور"],["Complete","مكتمل"],["Optimal","أمثل"],["Time","الزمن"],["Space","المساحة"]],[
+[["BFS","BFS"],["FIFO","FIFO"],["Yes","نعم"],["Yes, if all costs are equal","نعم إذا تساوت التكاليف"],["O(b^d)","O(b^d)"],["O(b^d)","O(b^d)"]],
+[["DFS","DFS"],["LIFO","LIFO"],["No (if infinite depth)","لا (مع عمق لانهائي)"],["No","لا"],["O(b^m)","O(b^m)"],["O(bm)","O(bm)"]],
+[["UCS","UCS"],["Priority by g(n)","أولوية حسب g(n)"],["Yes","نعم"],["Yes","نعم"],["O(b^d)","O(b^d)"],["O(b^d)","O(b^d)"]],
+[["Iterative Deepening","التعميق التكراري"],["LIFO with increasing limit","LIFO مع زيادة الحد"],["Yes","نعم"],["Yes, if costs are equal","نعم إذا تساوت التكاليف"],["O(b^d)","O(b^d)"],["O(bd)","O(bd)"]]])
+)]);
+S.push(["ex1","Solved Ex.1","حل مثال 1",sec("ex1","Solved Example 1 (all blind algorithms)","مثال محلول 1 (كل الخوارزميات العمياء)",
+bi("<p>Graph: S-A 1, S-B 2, A-C 3, B-C 2, B-D 1, C-D 3, C-F 4, C-J 1, D-F 2, F-G 1, J-G 1. Start S, goal G. Highlighted: the cheapest path S-A-C-J-G (cost 6).</p>","<p>الرسم: S-A 1، S-B 2، A-C 3، B-C 2، B-D 1، C-D 3، C-F 4، C-J 1، D-F 2، F-G 1، J-G 1. البداية S والهدف G. المظلل: أرخص مسار S-A-C-J-G (تكلفة 6).</p>")+
+gr(540,200,{S:[40,100],A:[130,40],B:[130,160],C:[260,40],D:[260,160],F:[390,160],J:[390,40],G:[500,100]},[["S","A",1],["S","B",2],["A","C",3],["B","C",2],["B","D",1],["C","D",3],["C","F",4],["D","F",2],["C","J",1],["J","G",1],["F","G",1]],["S","A","C","J","G"])+
+sh("BFS (FIFO)","BFS (FIFO)")+
+st(["I","Found","Open","Close"],[["0","—","S","S"],["1","S","<u>A</u>B","SA"],["2","A","<u>B</u>C","SAB"],["3","B","<u>C</u>D","SABC"],["4","C","<u>D</u>FJ","SABCD"],["5","D","<u>F</u>J","SABCDF"],["6","F","<u>J</u>G","SABCDFJ"],["7","J","<u>G</u>","SABCDFJG"]])+
+res("SABCDFJG","SACFG","9")+
+bi("<p>Why: G was generated first when F was expanded (F came before J). F’s parent is C, C’s parent is A, so the path is S-A-C-F-G = 1+3+4+1 = 9. BFS finds the shallowest goal, not the cheapest (the cheapest costs 6).</p>","<p>السبب: وُلد G أولًا عند توسيع F (لأن F سبق J). أب F هو C وأب C هو A فالمسار S-A-C-F-G = 1+3+4+1 = 9. BFS يجد أقرب هدف عمقًا وليس الأرخص (الأرخص تكلفته 6).</p>")+
+sh("DFS (LIFO)","DFS (LIFO)")+
+st(["I","Found","Open","Close"],[["0","—","S","S"],["1","S","<u>A</u>B","SA"],["2","A","<u>C</u>B","SAC"],["3","C","<u>D</u>FJB","SACD"],["4","D","<u>F</u>JB","SACDF"],["5","F","<u>G</u>JB","SACDFG"]])+
+res("SACDFG","SACDFG","10 (1+3+3+2+1)")+
+bi("<p>Successors go to the front of the stack, so it dives A → C → D → F → G and stops at the first goal even though it is expensive.</p>","<p>الأبناء يدخلون مقدمة المكدس فيغوص A ← C ← D ← F ← G ويتوقف عند أول هدف رغم أنه مكلف.</p>")+
+sh("UCS (priority queue)","UCS (طابور أولوية)")+
+st(["I","Queue (path, cost)"],[["0","{[S,0]}"],["1","{[SA,1], [SB,2]}"],["2","{[SAC,4], [SB,2]}"],["3","{[SAC,4], [SBC,4], [SBD,3]}"],["4","{[SAC,4], [SBC,4], [SBDF,5]}"],["5","{[SACD,7], [SACF,8], [SACJ,5], [SBC,4], [SBDF,5]}"],["6","{[SACD,7], [SACF,8], [SACJG,6], [SBC,4], [SBDF,5]}"]])+
+res("SABCDFJG","SACJG","6")+
+bi("<p>Each iteration expands the cheapest entry (green underline in the notes). [SBC,4] reaches C at the same cost as SAC, so C is already closed and it is dropped; the cheapest goal is SACJG = 1+3+1+1 = 6. Ties also exist: SBCJG = 6 and SBDFG = 6.</p>","<p>كل تكرار يوسّع أرخص عنصر. [SBC,4] يصل C بنفس تكلفة SAC لذا C مغلقة أصلًا فيُهمل؛ أرخص هدف هو SACJG = 1+3+1+1 = 6. وتوجد حالات تعادل: SBCJG = 6 و SBDFG = 6.</p>")+
+sh("Iterative Deepening (IDS)","التعميق التكراري (IDS)")+
+st(["Limit","Nodes visited (in order)","Goal?"],[["L=0","S","no"],["L=1","S A B","no"],["L=2","S A C B D","no (C, D at depth 2 are not expanded)"],["L=3","S A C D F J B","no"],["L=4","S A C D F F G","<b>yes</b>"]])+
+res("SACDFG","SACFG","9")+
+bi("<p>At L=4 the DFS first meets F under D at depth 4 (cannot expand: G would be depth 5), then F under C at depth 3, expands it and reaches G at depth 4. That is why visited = SACDFG but the path is S-A-C-F-G = 9.</p>","<p>عند L=4 يقابل DFS أولًا F تحت D في العمق 4 (لا يوسّعها لأن G ستكون عمق 5)، ثم F تحت C في العمق 3 فيوسّعها ويصل G في العمق 4. لذلك المزارة = SACDFG لكن المسار S-A-C-F-G = 9.</p>")+
+tbl([["Algorithm","الخوارزمية"],["Path","المسار"],["Cost","التكلفة"]],[[["BFS","BFS"],["SACFG","SACFG"],["9","9"]],[["DFS","DFS"],["SACDFG","SACDFG"],["10","10"]],[["UCS (optimal)","UCS (الأمثل)"],["SACJG","SACJG"],["6","6"]],[["IDS","IDS"],["SACFG","SACFG"],["9","9"]]])
+)]);
+S.push(["ex2","Solved Ex.2","حل مثال 2",sec("ex2","Solved Example 2 (tree)","مثال محلول 2 (شجرة)",
+bi("<p>Tree: S→A(5), B(4), C(3); A→D(3), E(1); B→F(1); C→G(6), H(3); D→K(2), G(2); E→G(3); F→R(5), G(2). Goal G. Highlighted: the optimal path S-B-F-G (cost 7).</p>","<p>الشجرة: S←A(5), B(4), C(3); A←D(3), E(1); B←F(1); C←G(6), H(3); D←K(2), G(2); E←G(3); F←R(5), G(2). الهدف G. المظلل: المسار الأمثل S-B-F-G (تكلفة 7).</p>")+
+gr(560,290,{S:[300,25],A:[130,95],B:[300,95],C:[470,95],D:[60,175],E:[190,175],F:[300,175],G4:[430,175,"","G"],H:[520,175],K:[30,255],G1:[100,255,"","G"],G2:[190,255,"","G"],R:[270,255],G3:[340,255,"","G"]},[["S","A",5],["S","B",4],["S","C",3],["A","D",3],["A","E",1],["B","F",1],["C","G4",6],["C","H",3],["D","K",2],["D","G1",2],["E","G2",3],["F","R",5],["F","G3",2]],["S","B","F","G3"])+
+sh("BFS","BFS")+
+st(["I","Found","Open","Close"],[["0","—","S","S"],["1","S","<u>A</u>BC","SA"],["2","A","<u>B</u>CDE","SAB"],["3","B","<u>C</u>DEF","SABC"],["4","C","<u>D</u>EFGH","SABCD"],["5","D","<u>E</u>FGHK","SABCDE"],["6","E","<u>F</u>GHK","SABCDEF"],["7","F","<u>G</u>HKR","SABCDEFG"]])+
+res("SABCDEFG","SCG","9")+
+sh("DFS","DFS")+
+st(["I","Found","Open","Close"],[["0","—","S","S"],["1","S","<u>A</u>BC","SA"],["2","A","<u>D</u>EBC","SAD"],["3","D","<u>K</u>GEBC","SADK"],["4","K","<u>G</u>EBC","SADKG"]])+
+res("SADKG","SADG","10 (5+3+2)")+
+bi("<p>K has no children so the stack pops G (child of D) and finds the goal.</p>","<p>K ليس له أبناء فيسحب المكدس G (ابن D) ويجد الهدف.</p>")+
+sh("UCS","UCS")+
+st(["I","Queue (path, cost), expand the cheapest"],[["0","{[S,0]}"],["1","{[SC,3], [SB,4], [SA,5]}"],["2","{[SB,4], [SA,5], [SCH,6], [SCG,9]}"],["3","{[SA,5], [SBF,5], [SCH,6], [SCG,9]}"],["4","{[SA,5], [SCH,6], [SBFG,7], [SCG,9], [SBFR,10]}"],["5","{[SCH,6], [SAE,6], [SBFG,7], [SAD,8], [SCG,9], [SBFR,10]}"],["6","SCH (dead end), SAE then [SAEG,9]; next cheapest is [SBFG,7] = goal"]])+
+res("S C B A F H E G (strict expansion order)","SBFG","7")+
+bi("<p>Note: the handwritten table skips straight to SBFG (7) and drops H. Strictly, SA (5) and SCH (6) are cheaper and are expanded first, but they cannot produce a goal cheaper than 7, so the answer is the same: <b>SBFG = 4+1+2 = 7</b>, the optimal path.</p>","<p>ملاحظة: الجدول المكتوب يقفز مباشرة إلى SBFG (7) ويحذف H. بدقة، SA (5) و SCH (6) أرخص فتُوسَّعان أولًا لكنهما لا تنتجان هدفًا أرخص من 7 فالنتيجة نفسها: <b>SBFG = 4+1+2 = 7</b> وهو المسار الأمثل.</p>")+
+sh("IDS","IDS")+
+st(["Limit","Nodes visited","Goal?"],[["L=0","S","no"],["L=1","S A B C","no"],["L=2","S A D E B F C G","<b>yes</b> (G under C, depth 2)"]])+
+res("SADEBFCG","SCG","9")+
+tbl([["Algorithm","الخوارزمية"],["Path","المسار"],["Cost","التكلفة"]],[[["BFS","BFS"],["SCG","SCG"],["9","9"]],[["DFS","DFS"],["SADG","SADG"],["10","10"]],[["UCS (optimal)","UCS (الأمثل)"],["SBFG","SBFG"],["7","7"]],[["IDS","IDS"],["SCG","SCG"],["9","9"]]])+
+sh("Quiz 1 (Dr. Ayat Aljarrah)","كويز 1 (د. آيات الجراح)")+
+bi("<p>Tree: S→A(5), B(1), C(4), D(3); A→Z(4), E(3); B→F(2); C→G(4), H(3); D→I(3), J(4); F→Z(2); I→M(3), Z(1); J→N(3); Z→K(5), L(2). Find S to Z by BFS and DFS.</p>","<p>الشجرة: S←A(5), B(1), C(4), D(3); A←Z(4), E(3); B←F(2); C←G(4), H(3); D←I(3), J(4); F←Z(2); I←M(3), Z(1); J←N(3); Z←K(5), L(2). أوجد المسار من S إلى Z بـ BFS و DFS.</p>")+
+st(["I","Found","Open","Close"],[["0","—","S","S"],["1","S","<u>A</u>BCD","SA"],["2","A","<u>B</u>CDZE","SAB"],["3","B","<u>C</u>DZEF","SABC"],["4","C","<u>D</u>ZEFGH","SABCD"],["5","D","<u>Z</u>EFGHIJ","SABCDZ  ← goal"]])+
+res("SABCDZ","SAZ","9 (5+4)")+
+bi("<p>Correction marked by the teacher: A’s children come in tree order Z then E, so Open after A is B C D <b>Z E</b> (not E Z). Then Z is reached at iteration 5, and the Close list is SABCDZ. DFS: S → A → Z directly: Open after A is Z E B C D, Z is first, path SAZ, cost 9.</p>","<p>التصحيح الذي وضعته الدكتورة: أبناء A بترتيب الشجرة Z ثم E فتكون Open بعد A هي B C D <b>Z E</b> (وليس E Z). فيُصل إلى Z عند التكرار 5 وقائمة Close هي SABCDZ. أما DFS: S ← A ← Z مباشرة: Open بعد A هي Z E B C D، Z في المقدمة، المسار SAZ، التكلفة 9.</p>")
+)]);
+S.push(["informed","Informed","المستنير",sec("informed","Informed (Heuristic) Search","البحث المستنير (الهيوريستك)",
+sh("What is a Heuristic?","ما هو الهيوريستك؟")+
+bi(ul(["A heuristic is a function that <b>estimates how close a state is to a goal</b>, designed for a particular search problem. Examples: Manhattan distance, Euclidean distance for pathing. In the notes: <b>h = the expected cost to reach the goal</b>.","Without knowledge there is no bias: you must look everywhere, so uninformed search is intractable. Heuristic information = “hints”: you search only a promising subtree, a dramatic speedup.","Pancake example: h = the number of the largest pancake still out of place."]),ul(["الهيوريستك دالة <b>تقدّر مدى قرب حالة من الهدف</b> وتُصمم لمشكلة بحث معينة. أمثلة: مسافة مانهاتن، المسافة الإقليدية. في الملف: <b>h = التكلفة المتوقعة للوصول للهدف</b>.","بدون معرفة لا يوجد انحياز: يجب البحث في كل مكان فيصبح البحث غير المستنير مستعصيًا. المعلومة الهيوريستك = “تلميحات”: نبحث فقط في شجرة فرعية واعدة وهذا يسرّع كثيرًا.","مثال الفطائر: h = رقم أكبر فطيرة ما زالت في مكان خاطئ."]))+
+sh("Heuristic Functions: Three Approaches","دوال الهيوريستك: ثلاث طرق")+
+tbl([["Approach","الطريقة"],["Meaning and examples","المعنى والأمثلة"]],[
+[["1. f = value of the current state","1. f = قيمة الحالة الحالية"],["Optimization problems: find a state that optimizes f (often a weighted sum). N-Queens: number of queens under attack. Data mining: accuracy of a discovered rule.","مشكلات التحسين: إيجاد حالة تحسّن f (غالبًا مجموع موزون). N-Queens: عدد الملكات المهاجَمة. التنقيب: دقة قاعدة مكتشفة."]],
+[["2. f = h(n) = estimated cost to the goal","2. f = h(n) = التكلفة المقدرة للهدف"],["State X is better than Y if its estimated cost to the goal is lower. 8-puzzle: h1 = number of misplaced tiles; h2 = sum of the distances of tiles from their goal positions.","الحالة X أفضل من Y إذا كانت تكلفتها المقدرة للهدف أقل. لغز الـ 8: h1 = عدد البلاطات في غير مكانها؛ h2 = مجموع مسافات البلاطات عن أماكنها الهدف."]],
+[["3. f(n) = g(n) + h(n)","3. f(n) = g(n) + h(n)"],["g(n) = exact cost from the start to n; h(n) = estimate to the goal. f is the estimated total cost of the path through n.","g(n) = التكلفة الفعلية من البداية إلى n؛ h(n) = التقدير للهدف. f هي التكلفة الكلية المقدرة للمسار عبر n."]]])+
+sh("Admissible Heuristics","الهيوريستك المقبول")+
+bi(ul(["h is <b>admissible</b> if it never overestimates the true cost to the goal: h(n) ≤ actual cost from n to G. Admissible heuristics are “optimistic”.","<b>Theorem:</b> A* with an admissible h returns an optimal solution.","If h2(n) > h1(n) for all n (both admissible), h2 is more informed and always more efficient.","<b>Consistency:</b> h(A) − h(C) ≤ cost(A→C) for every arc. Then f never decreases along a path and A* graph search is optimal. Consistent ⇒ admissible."]),ul(["h <b>مقبول</b> إذا لم يبالغ أبدًا في تقدير التكلفة الحقيقية للهدف: h(n) ≤ التكلفة الفعلية من n إلى G. المقبول “متفائل”.","<b>مبرهنة:</b> A* مع h مقبول يعيد حلًا أمثل.","إذا كان h2(n) > h1(n) لكل n (كلاهما مقبول) فإن h2 أكثر استنارة وأكفأ دائمًا.","<b>الاتساق:</b> h(A) − h(C) ≤ cost(A→C) لكل قوس. عندها لا تتناقص f على المسار وA* graph search أمثل. المتسق ⇒ مقبول."]))+
+sh("Best-First Search","البحث أفضل-أولًا")+
+bi("<p>A node is selected for expansion based on an evaluation function f(n). Special cases: <b>Greedy best-first</b> and <b>A*</b>.</p>","<p>تُختار العقدة للتوسيع حسب دالة تقييم f(n). حالتان خاصتان: <b>أفضل-أولًا الجشع</b> و<b>A*</b>.</p>")+
+tbl([["","" ],["Greedy best-first (GBF)","الجشع (GBF)"],["A*","A*"]],[
+[["f(n)","f(n)"],["f(n) = h(n): relies on the heuristic only","f(n) = h(n): يعتمد على الهيوريستك فقط"],["f(n) = g(n) + h(n): actual cost and heuristic","f(n) = g(n) + h(n): التكلفة الفعلية والهيوريستك"]],
+[["Idea","الفكرة"],["Expand the node that seems closest to the goal. “Greedy” because at each step it gets as close as it can.","يوسّع العقدة التي تبدو الأقرب للهدف. “جشع” لأنه في كل خطوة يقترب قدر الإمكان."],["Combines UCS (backward cost g) and Greedy (forward cost h).","يجمع UCS (التكلفة الخلفية g) والجشع (التكلفة الأمامية h)."]],
+[["Complete","مكتمل"],["No (can loop, e.g. Iasi → Neamt → Iasi ...)","لا (قد يدور في حلقة)"],["Yes (unless infinitely many nodes have f ≤ f(G))","نعم (إلا مع عقد لانهائية f ≤ f(G))"]],
+[["Optimal","أمثل"],["No","لا"],["Yes, with an admissible/consistent h","نعم مع h مقبول/متسق"]],
+[["Time","الزمن"],["O(b^m) (a good heuristic improves it a lot)","O(b^m) (الهيوريستك الجيد يحسّنه كثيرًا)"],["Exponential (all nodes with f ≤ C* expanded)","أسي (توسع كل العقد التي f ≤ C*)"]],
+[["Space","المساحة"],["O(b^m), keeps all nodes","O(b^m)، يحتفظ بكل العقد"],["Keeps all nodes; the fringe is exponentially large","يحتفظ بكل العقد؛ الحافة كبيرة أسيًا"]]])+
+ex("Iasi to Fagaras: h suggests expanding Neamt first (closest to Fagaras) but it is a dead end. The real solution goes first to Vaslui (farther by h) then Urziceni, Bucharest, Fagaras. Best-first can take you straight to the wrong goal; worst case it behaves like a badly-guided DFS.","من Iasi إلى Fagaras: الهيوريستك يقترح توسيع Neamt أولًا (الأقرب لـ Fagaras) لكنه طريق مسدود. الحل الحقيقي يذهب أولًا إلى Vaslui (أبعد حسب h) ثم Urziceni وBucharest وFagaras. الجشع قد يأخذك مباشرة للهدف الخطأ وفي أسوأ حالاته يشبه DFS سيئ التوجيه.")+
+sh("A*: Termination, Admissibility, Consistency","A*: الإنهاء والقبول والاتساق")+
+bi(ul(["<b>When to stop?</b> Only when the goal is <b>dequeued</b>, not when it is enqueued.","<b>Why admissible?</b> Slide example: S-A 1, A-G 3, S-G 5; h(S)=7, h(A)=6, h(G)=0. The true cost A→G is 3 but h(A)=6 overestimates. f(A)=1+6=7 loses to f(G)=5, so A* returns the bad direct goal (5) instead of S-A-G (4). Inadmissible (pessimistic) heuristics trap good plans on the fringe.","<b>Why consistent?</b> Slide example: S-A 1, S-B 1, A-C 1, B-C 2, C-G 3 with h: S2, A4, B1, C1, G0. h(A)−h(C)=3 > cost(A→C)=1, so h is inconsistent: graph search closes C via B first (g=3) and misses the cheaper C via A (g=2), returning cost 6 instead of 5.","UCS expands equally in all directions; A* expands mainly toward the goal while hedging its bets to stay optimal. Heuristic design is key: often use <b>relaxed problems</b>."]),ul(["<b>متى نتوقف؟</b> فقط عندما يُسحب الهدف <b>من الطابور</b> وليس عند إضافته.","<b>لماذا مقبول؟</b> مثال السلايد: S-A 1، A-G 3، S-G 5؛ h(S)=7، h(A)=6، h(G)=0. التكلفة الحقيقية A←G هي 3 لكن h(A)=6 مبالغ فيها. f(A)=1+6=7 تخسر أمام f(G)=5 فيعيد A* الهدف المباشر السيئ (5) بدل S-A-G (4). الهيوريستك غير المقبول (المتشائم) يحبس الخطط الجيدة في الحافة.","<b>لماذا متسق؟</b> مثال السلايد: S-A 1، S-B 1، A-C 1، B-C 2، C-G 3 مع h: S2، A4، B1، C1، G0. h(A)−h(C)=3 > cost(A→C)=1 فالهيوريستك غير متسق: يغلق graph search العقدة C عبر B أولًا (g=3) ويفوّت C الأرخص عبر A (g=2) فيعيد تكلفة 6 بدل 5.","UCS يتوسع بالتساوي في كل الاتجاهات، وA* يتوسع نحو الهدف مع تحوّط للحفاظ على الأمثلية. تصميم الهيوريستك هو المفتاح: غالبًا نستخدم <b>مشكلات مخففة</b>."]))
+)]);
+S.push(["ex3","Heuristic Ex.","أمثلة هيوريستك",sec("ex3","Solved Examples: Greedy and A*","أمثلة محلولة: الجشع وA*",
+sh("Example 1: UCS vs Greedy vs A*","مثال 1: UCS مقابل الجشع مقابل A*")+
+bi("<p>Directed graph: S→a 1, a→b 1, b→c 1, a→d 3, a→e 8, e→d 1, d→G 2. h: S6, a5, b6, c7, d2, e1, G0. Highlighted: SadG.</p>","<p>رسم موجّه: S←a 1، a←b 1، b←c 1، a←d 3، a←e 8، e←d 1، d←G 2. قيم h: S6، a5، b6، c7، d2، e1، G0. المظلل: SadG.</p>")+
+gr(480,210,{S:[40,110,"h=6"],a:[150,110,"h=5"],b:[150,40,"h=6"],c:[270,40,"h=7"],d:[310,110,"h=2"],e:[230,180,"h=1"],G:[430,110,"h=0"]},[["S","a",1],["a","b",1],["b","c",1],["a","d",3],["a","e",8],["e","d",1],["d","G",2]],["S","a","d","G"])+
+st(["Node","g","h","f=g+h"],[["S","0","6","6"],["a","1","5","6"],["b","2","6","8"],["c","3","7","10"],["d (via a)","4","2","6"],["e","9","1","10"],["d (via e)","10","2","12"],["G (via d)","6","0","6"],["G (via e,d)","12","0","12"]])+
+tbl([["Algorithm","الخوارزمية"],["Orders by","يرتب حسب"],["Path","المسار"],["Cost","التكلفة"]],[
+[["UCS","UCS"],["g(n)","g(n)"],["S a d G","S a d G"],["6","6"]],
+[["Greedy","الجشع"],["h(n)","h(n)"],["S a e d G","S a e d G"],["12 (1+8+1+2), not optimal","12 (غير أمثل)"]],
+[["A*","A*"],["g(n)+h(n)","g(n)+h(n)"],["S a d G","S a d G"],["6 (optimal)","6 (أمثل)"]]])+
+bi("<p>Greedy is lured by e (h=1, the smallest) although reaching e costs 8; A* adds g so e’s f=10 loses to d’s f=6.</p>","<p>الجشع ينخدع بـ e (h=1 الأصغر) رغم أن الوصول إليها يكلف 8؛ أما A* فيضيف g فتخسر f=10 لـ e أمام f=6 لـ d.</p>")+
+sh("Example 2: Greedy best-first (GBF)","مثال 2: أفضل-أولًا الجشع")+
+bi("<p>Start A, goal F. Edges: A-B 4, A-C 3, A-E 7, B-C 6, B-D 5, C-D 11, C-E 8, D-E 2, D-F 2, D-G 10, E-G 5, G-F 3. h: A28, B30, C56, D60, E44, F0, G36.</p>","<p>البداية A والهدف F. الحواف: A-B 4، A-C 3، A-E 7، B-C 6، B-D 5، C-D 11، C-E 8، D-E 2، D-F 2، D-G 10، E-G 5، G-F 3. قيم h: A28، B30، C56، D60، E44، F0، G36.</p>")+
+gr(540,260,{B:[60,50,"h=30"],D:[280,50,"h=60"],F:[480,70,"h=0"],C:[150,140,"h=56"],G:[390,140,"h=36"],A:[60,215,"h=28"],E:[270,215,"h=44"]},[["B","D",5],["B","C",6],["C","D",11],["D","F",2],["D","G",10],["D","E",2],["B","A",4],["A","C",3],["C","E",8],["A","E",7],["E","G",5],["G","F",3]],["A","E","G","F"])+
+st(["Step","Frontier (h)","Expand"],[["1","A","A → B(30), C(56), E(44)"],["2","B30, E44, C56","B (lowest h) → C(56), D(60)"],["3","E44, C56, C56, D60","E (lowest h) → C(56), D(60), G(36)"],["4","G36, C56, D60...","G → D(60), F(0)"],["5","F0","F = goal"]])+
+res("A, B, E, G, F","AEGF","15 (7+5+3), real cost")+
+bi("<p>The notes remind: the cost reported is the <b>real</b> cost 7+5+3 = 15, not the sum of h. (In the handwritten tree the label under B reads E, but h=56 belongs to C, the other child of B.)</p>","<p>يذكّر الملف: التكلفة المذكورة هي التكلفة <b>الحقيقية</b> 7+5+3 = 15 وليست مجموع h. (في الشجرة المكتوبة يظهر الحرف E تحت B لكن h=56 تعود إلى C الابن الآخر لـ B.)</p>")+
+sh("Example 3: A → J on a small graph","مثال 3: من A إلى J على رسم صغير")+
+bi("<p>Edges: A-C 3, C-E 4, E-F 6, F-J 8, A-B 4, B-D 6, D-J 4. h as written: B9, C8, D4, E4, F8, J0.</p>","<p>الحواف: A-C 3، C-E 4، E-F 6، F-J 8، A-B 4، B-D 6، D-J 4. قيم h كما كُتبت: B9، C8، D4، E4، F8، J0.</p>")+
+gr(540,240,{A:[70,70],C:[200,70,"h=8"],E:[330,70,"h=4"],F:[460,70,"h=8"],B:[70,190,"h=9"],D:[250,190,"h=4"],J:[460,190,"h=0"]},[["A","C",3],["C","E",4],["E","F",6],["F","J",8],["A","B",4],["B","D",6],["D","J",4]],["A","B","D","J"])+
+st(["A* step","Frontier f=g+h","Expand"],[["1","B 4+9=13, C 3+8=11","C (11)"],["2","B 13, E 7+4=11","E (11)"],["3","B 13, F 13+8=21","B (13)"],["4","D 10+4=14, F 21","D (14)"],["5","J 14+0=14, F 21","J = goal"]])+
+res("A, C, E, B, D, J (A*)","A B D J","14 (A*)")+
+bi("<p><b>A* = ABDJ, cost 14.</b> (The notes sum the h-values along each branch: 13 on the left, 20 on the right, and 27 vs 41 with the cost.) <b>Greedy</b> by the slide definition f=h: from A pick C (8 &lt; 9), then E (4), then F (8), then J (0): <b>ACEFJ, cost 21</b>, not optimal. The notes conclude ABDJ for both, but by f=h greedy goes right; this pair is exactly the example showing greedy can be worse than A* (based on my reading of the handwritten h values).</p>","<p><b>A* = ABDJ بتكلفة 14.</b> (الملف يجمع قيم h على كل فرع: 13 يسارًا و20 يمينًا و27 مقابل 41 مع التكلفة.) أما <b>الجشع</b> حسب تعريف السلايد f=h: من A نختار C (8 &lt; 9) ثم E (4) ثم F (8) ثم J (0): <b>ACEFJ بتكلفة 21</b> وهو غير أمثل. الملف يخلص إلى ABDJ للاثنين لكن مع f=h يذهب الجشع يمينًا؛ وهذا المثال بالضبط يوضح أن الجشع قد يكون أسوأ من A* (حسب قراءتي لقيم h المكتوبة بخط اليد).</p>")+
+sh("Example 4: A → J, GBFS then A*","مثال 4: من A إلى J، الجشع ثم A*")+
+bi("<p>Edges: A-F 3, A-B 6, F-G 1, F-H 7, B-D 2, B-C 3, D-C 1, D-E 8, C-E 5, G-I 3, H-I 2, E-I 5, I-J 3, E-J 5. h: A10, B8, C5, D7, E3, F6, G5, H3, I1, J0.</p>","<p>الحواف: A-F 3، A-B 6، F-G 1، F-H 7، B-D 2، B-C 3، D-C 1، D-E 8، C-E 5، G-I 3، H-I 2، E-I 5، I-J 3، E-J 5. قيم h: A10، B8، C5، D7، E3، F6، G5، H3، I1، J0.</p>")+
+gr(560,290,{A:[80,40,"h=10"],F:[330,40,"h=6"],H:[520,100,"h=3"],G:[250,100,"h=5"],B:[40,140,"h=8"],D:[190,150,"h=7"],I:[390,165,"h=1"],C:[110,225,"h=5"],E:[260,235,"h=3"],J:[460,255,"h=0"]},[["A","F",3],["A","B",6],["F","G",1],["F","H",7],["B","D",2],["B","C",3],["D","C",1],["D","E",8],["C","E",5],["G","I",3],["H","I",2],["E","I",5],["I","J",3],["E","J",5]],["A","F","G","I","J"])+
+bi("<p><b>1) GBFS (f=h):</b> A → F(6) &lt; B(8); F → H(3) &lt; G(5); H → I(1); I → J(0). Path <b>AFHIJ</b>, real cost 3+7+2+3 = <b>15</b>.</p><p><b>2) A* (f=g+h):</b> f(B)=6+8=14, f(F)=3+6=9. Expand F: G = 4+5 = 9, H = 10+3 = 13. Expand G: I = 7+1 = 8. Expand I: J = 10+0 = 10, E = 12+3 = 15. J has the lowest f: path <b>AFGIJ</b>, cost <b>10</b>.</p>","<p><b>1) الجشع (f=h):</b> من A إلى F(6) &lt; B(8)؛ من F إلى H(3) &lt; G(5)؛ من H إلى I(1)؛ من I إلى J(0). المسار <b>AFHIJ</b> وتكلفته الحقيقية 3+7+2+3 = <b>15</b>.</p><p><b>2) A* (f=g+h):</b> f(B)=6+8=14 وf(F)=3+6=9. نوسّع F: G = 4+5 = 9 وH = 10+3 = 13. نوسّع G: I = 7+1 = 8. نوسّع I: J = 10+0 = 10 وE = 12+3 = 15. J أقل f: المسار <b>AFGIJ</b> وتكلفته <b>10</b>.</p>")+
+sh("Quiz 2: A → K","كويز 2: من A إلى K")+
+bi("<p>Edges: A-B 2.2, A-C 3.2, A-D 2.0, B-F 3.2, C-E 2.2, D-E 2.2, E-G 1.4, E-J 4.0, F-H 2.2, F-I 2.2, G-I 2.2, H-K 2.8, I-K 2.0, J-K 2.2. Straight-line distances h are shown under each node.</p>","<p>الحواف: A-B 2.2، A-C 3.2، A-D 2.0، B-F 3.2، C-E 2.2، D-E 2.2، E-G 1.4، E-J 4.0، F-H 2.2، F-I 2.2، G-I 2.2، H-K 2.8، I-K 2.0، J-K 2.2. المسافات المستقيمة h تظهر تحت كل عقدة.</p>")+
+gr(480,345,{A:[240,30,"h=8.0"],B:[100,80,"h=7.3"],C:[380,80,"h=7.6"],D:[240,125,"h=6.0"],E:[320,175,"h=5.4"],F:[150,190,"h=4.1"],G:[260,225,"h=4.1"],H:[60,255,"h=2.8"],I:[200,285,"h=2.0"],J:[390,270,"h=2.2"],K:[240,330,"h=0"]},[["A","B",2.2],["A","C",3.2],["A","D",2.0],["B","F",3.2],["C","E",2.2],["D","E",2.2],["E","G",1.4],["E","J",4.0],["F","H",2.2],["F","I",2.2],["G","I",2.2],["H","K",2.8],["I","K",2.0],["J","K",2.2]],["A","B","F","I","K"])+
+bi("<p><b>A) Greedy (f=h):</b> A: B 7.3, C 7.6, D 6.0 → D. D: E 5.4 → E. E: G 4.1, J 2.2 → J. J: K 0. Path <b>ADEJK</b>, cost 2.0+2.2+4.0+2.2 = <b>10.4</b>.</p><p><b>B) A* (f=g+h):</b> D = 2.0+6.0 = 8.0 (expand). Frontier: B = 2.2+7.3 = 9.5, E = 4.2+5.4 = 9.6, C = 3.2+7.6 = 10.8, so expand B: F = 5.4+4.1 = 9.5. Expand F: H = 7.6+2.8 = 10.4, I = 7.6+2.0 = 9.6. Expand I: K = 9.6+0 = 9.6 (E also 9.6). Path <b>ABFIK</b>, cost <b>9.6</b> (the next best, ADEGIK, costs 9.8).</p>","<p><b>أ) الجشع (f=h):</b> من A: B 7.3، C 7.6، D 6.0 ← D. من D: E 5.4 ← E. من E: G 4.1، J 2.2 ← J. من J: K 0. المسار <b>ADEJK</b> وتكلفته 2.0+2.2+4.0+2.2 = <b>10.4</b>.</p><p><b>ب) A* (f=g+h):</b> D = 2.0+6.0 = 8.0 (نوسّع). الحافة: B = 2.2+7.3 = 9.5، E = 4.2+5.4 = 9.6، C = 3.2+7.6 = 10.8 فنوسّع B: F = 5.4+4.1 = 9.5. نوسّع F: H = 7.6+2.8 = 10.4، I = 7.6+2.0 = 9.6. نوسّع I: K = 9.6+0 = 9.6 (وE أيضًا 9.6). المسار <b>ABFIK</b> وتكلفته <b>9.6</b> (أفضل بديل ADEGIK تكلفته 9.8).</p>")
+)]);
+S.push(["ml","KNN & Naive Bayes","KNN و Bayes",sec("ml","Supervised Learning from the Solved Notes","التعلم الخاضع للإشراف من الملف المحلول",
+sh("K-Nearest Neighbors (KNN)","أقرب الجيران (KNN)")+
+bi(ul(["<b>Step 1:</b> compute the Euclidean distance from the test example to every training example: Distance = √((x₂−x₁)² + (y₂−y₁)² + (z₂−z₁)² + ...).","<b>Step 2:</b> sort ascending and keep the K smallest distances (here K = 5).","<b>Step 3:</b> count how many of those K are 1 (True) and how many are 0 (False).","<b>Step 4:</b> the output is the majority class: 1 = healthy, 0 = unhealthy."]),ul(["<b>الخطوة 1:</b> نحسب المسافة الإقليدية من مثال الاختبار إلى كل مثال تدريب: Distance = √((x₂−x₁)² + (y₂−y₁)² + (z₂−z₁)² + ...).","<b>الخطوة 2:</b> نرتب تصاعديًا ونأخذ أصغر K مسافات (هنا K = 5).","<b>الخطوة 3:</b> نعدّ كم منها 1 (True) وكم منها 0 (False).","<b>الخطوة 4:</b> الناتج هو الفئة الأكثر تكرارًا: 1 = سليم، 0 = غير سليم."]))+
+bi("<p><b>Assignment:</b> predict Health Status for Height = 170, Weight = 75, Calories = 2500 with k = 5.</p>","<p><b>الواجب:</b> تنبأ بالحالة الصحية للمثال: الطول 170، الوزن 75، السعرات 2500 مع k = 5.</p>")+
+st(["Height","Weight","Calories","Health","Distance to (170, 75, 2500)","Rank"],[["160","65","2000","1","√(100+100+250000) = 500.2","—"],["175","85","2800","0","√(25+100+90000) = 300.2","5"],["180","90","3000","0","√(100+225+250000) = 500.3","—"],["165","70","2200","1","√(25+25+90000) = 300.1","4"],["155","60","1800","1","√(225+225+490000) = 700.3","—"],["170","78","2500","0","√(0+9+0) = 3","1"],["172","72","2300","1","√(4+9+40000) = 200.03","3"],["168","80","2600","0","√(4+25+10000) = 100.1","2"],["162","66","1900","1","√(64+81+360000) = 600.1","—"],["158","58","1700","1","√(144+289+640000) = 800.3","—"]])+
+bi("<p>The 5 nearest: ranks 1 to 5 have Health = 0, 0, 1, 1, 0. So 0 appears 3 times and 1 appears 2 times: <b>Health Status = 0 → Unhealthy</b>.</p>","<p>أقرب 5 جيران: الرتب من 1 إلى 5 حالتها 0، 0، 1، 1، 0. فالصفر يتكرر 3 مرات والواحد مرتين: <b>الحالة الصحية = 0 ← غير سليم</b>.</p>")+
+sh("Naive Bayes","نايف بايز")+
+bi(ul(["Compute, for each class (Yes / No): <b>V(class) = P(class) × P(x₁|class) × P(x₂|class) × ...</b> where x are the attributes given in the question.","Normalize: V(yes) / (V(yes) + V(no)) and V(no) / (V(yes) + V(no)).","The class with the <b>higher</b> probability is the answer. (The notes say it is explained in the last 3 slides of chapter 6.)"]),ul(["نحسب لكل فئة (Yes / No): <b>V(الفئة) = P(الفئة) × P(x₁|الفئة) × P(x₂|الفئة) × ...</b> حيث x هي الخصائص المعطاة في السؤال.","نطبّع: V(yes) / (V(yes) + V(no)) و V(no) / (V(yes) + V(no)).","الفئة ذات الاحتمال <b>الأعلى</b> هي الجواب. (يذكر الملف أنه مشروح في آخر 3 سلايدات من الشابتر 6.)"]))+
+bi("<p><b>Play Tennis example</b> (14 days): P(yes) = 9/14, P(no) = 5/14. Query: {Outlook = Sunny, Temperature = Cool, Humidity = High, Wind = Strong}.</p>","<p><b>مثال Play Tennis</b> (14 يومًا): P(yes) = 9/14 وP(no) = 5/14. الاستعلام: {Outlook = Sunny, Temperature = Cool, Humidity = High, Wind = Strong}.</p>")+
+st(["Attribute","P(·|Yes)","P(·|No)"],[["Outlook = Sunny","2/9","3/5"],["Temp = Cool","3/9","1/5"],["Humidity = High","3/9","4/5"],["Wind = Strong","3/9","3/5"]])+
+bi("<p>V(yes) = 9/14 × 2/9 × 3/9 × 3/9 × 3/9 = <b>0.005</b><br>V(no) = 5/14 × 3/5 × 1/5 × 4/5 × 3/5 = <b>0.0206</b><br>P(yes) = 0.005 / (0.005 + 0.0206) = <b>0.205</b><br>P(no) = 0.0206 / (0.005 + 0.0206) = <b>0.795</b><br>Play Tennis? <b>NO</b>.</p>","<p>V(yes) = 9/14 × 2/9 × 3/9 × 3/9 × 3/9 = <b>0.005</b><br>V(no) = 5/14 × 3/5 × 1/5 × 4/5 × 3/5 = <b>0.0206</b><br>P(yes) = 0.005 / (0.005 + 0.0206) = <b>0.205</b><br>P(no) = 0.0206 / (0.005 + 0.0206) = <b>0.795</b><br>هل يلعب تنس؟ <b>لا (NO)</b>.</p>")
+)]);
+var F=[["State space","فضاء الحالات","All states reachable from the initial state.","كل الحالات الممكن الوصول إليها من الحالة الابتدائية."],
+["Fringe (Open)","الحافة (Open)","Nodes generated but not yet expanded.","عقد وُلدت ولم تُوسَّع بعد."],
+["Closed (Visited)","المزارة (Closed)","Nodes already processed (expanded and tested).","عقد عولجت (وُسّعت واختُبرت)."],
+["BFS","البحث بالعرض","FIFO queue; shallowest first; optimal only with equal costs.","طابور FIFO؛ الأقل عمقًا أولًا؛ أمثل فقط مع تساوي التكاليف."],
+["DFS","البحث بالعمق","LIFO stack; deepest first; not complete, not optimal; space O(bm).","مكدس LIFO؛ الأعمق أولًا؛ غير مكتمل وغير أمثل؛ مساحته O(bm)."],
+["UCS","التكلفة الموحدة","Priority queue by g(n); complete and optimal.","طابور أولوية حسب g(n)؛ مكتمل وأمثل."],
+["Iterative Deepening","التعميق التكراري","DFS repeated with limit L = 0, 1, 2...; complete; space O(bd).","DFS مكرر بحد L = 0, 1, 2...؛ مكتمل؛ مساحته O(bd)."],
+["Bidirectional","ثنائي الاتجاه","Search from start and goal until the frontiers meet.","بحث من البداية والهدف حتى تلتقي الحافتان."],
+["Heuristic h(n)","الهيوريستك h(n)","Estimated cost from n to the goal.","التكلفة المقدرة من n إلى الهدف."],
+["Greedy (GBF)","الجشع","f(n) = h(n); not complete, not optimal.","f(n) = h(n)؛ غير مكتمل وغير أمثل."],
+["A*","A*","f(n) = g(n) + h(n); optimal with admissible/consistent h.","f(n) = g(n) + h(n)؛ أمثل مع h مقبول/متسق."],
+["Admissible","مقبول","h never overestimates the true cost to the goal.","h لا يبالغ أبدًا في تقدير التكلفة الحقيقية للهدف."],
+["Consistent","متسق","h(A) − h(C) ≤ cost(A→C) for each arc.","h(A) − h(C) ≤ cost(A→C) لكل قوس."],
+["KNN","أقرب الجيران","Euclidean distance, take K nearest, majority vote.","مسافة إقليدية، نأخذ أقرب K، وتصويت الأغلبية."],
+["Naive Bayes","نايف بايز","V(class) = P(class) × Π P(xᵢ|class); normalize and pick the highest.","V(الفئة) = P(الفئة) × Π P(xᵢ|الفئة)؛ نطبّع ونختار الأعلى."],
+["Goal test","اختبار الهدف","Checks whether a state is a goal state.","يتحقق هل الحالة هي حالة هدف."]];
+S.push(["cards","Flashcards","بطاقات",sec("cards","Flashcards","بطاقات المراجعة",L("Tap a card to flip it.","اضغط على البطاقة لقلبها.")+"<div class='grid' id='fcs'></div>")]);
+S.push(["quiz","Quiz","اختبار",sec("quiz","Test Yourself","اختبر نفسك","<div id='qs'></div><div id='score'></div><p style='text-align:center'><button class='rb' id='rs'>Retry | إعادة الاختبار</button></p>")]);
+var Q=[["Which queue gives Breadth-First Search?",["FIFO queue","LIFO stack","Priority queue by g(n)","Priority queue by h(n)"],0,"FIFO: new successors go to the end.","FIFO: الأبناء الجدد في النهاية."],
+["The DFS fringe is a…",["FIFO queue","Priority queue","LIFO stack","Sorted list"],2,"LIFO: successors go to the front.","LIFO: الأبناء في المقدمة."],
+["UCS always expands the node with the smallest…",["h(n)","depth","g(n) + h(n)","g(n)"],3,"UCS orders by path cost g(n).","UCS يرتب حسب تكلفة المسار g(n)."],
+["Which is complete AND optimal on weighted graphs?",["DFS","UCS","Greedy","BFS"],1,"UCS handles different edge costs.","UCS يتعامل مع تكاليف حواف مختلفة."],
+["BFS is optimal only when…",["h is admissible","the graph is a tree","all step costs are equal","costs differ"],2,"Otherwise it finds the shallowest, not cheapest.","وإلا فيجد الأقرب عمقًا وليس الأرخص."],
+["Space complexity of DFS:",["O(b^d)","O(bm)","O(b^m)","O(d²)"],1,"Only the path and siblings are stored.","يخزن المسار والإخوة فقط."],
+["Iterative deepening combines…",["BFS and UCS","A* and greedy","UCS and DFS","DFS’s small memory with BFS’s completeness"],3,"DFS rounds with growing limit.","جولات DFS بحد متزايد."],
+["Greedy best-first uses f(n) =",["g(n)","h(n)","g(n)+h(n)","g(n)−h(n)"],1,"Only the heuristic.","الهيوريستك فقط."],
+["A* uses f(n) =",["h(n)","g(n)","g(n)−h(n)","g(n)+h(n)"],3,"Actual cost plus estimate.","التكلفة الفعلية زائد التقدير."],
+["A* should stop when the goal is…",["enqueued","dequeued","expanded twice","h=0 for the parent"],1,"Only when dequeued (lowest f).","فقط عند سحبه (أقل f)."],
+["An admissible heuristic…",["overestimates the cost","never overestimates the true cost","is always 0","equals g(n)"],1,"It is optimistic.","هو متفائل."],
+["Greedy best-first search is…",["complete and optimal","optimal only","complete only","neither complete nor optimal"],3,"It can loop and miss the best path.","قد يدور في حلقة ويفوّت أفضل مسار."],
+["Solved Example 2 (tree): the optimal path by UCS is…",["SCG (9)","SADG (10)","SAEG (9)","SBFG (7)"],3,"4+1+2 = 7.","4+1+2 = 7."],
+["Quiz 2: A* from A to K gives…",["ADEJK 10.4","ACEJK 11.6","ADEGIK 9.8","ABFIK 9.6"],3,"The lowest f at the goal is 9.6.","أقل f عند الهدف هو 9.6."],
+["Which distance does the KNN assignment use?",["Manhattan","Euclidean","Hamming","Cosine"],1,"√(Σ (xᵢ₂ − xᵢ₁)²).","√(Σ (xᵢ₂ − xᵢ₁)²)."],
+["KNN assignment result (k=5):",["Healthy (1)","Tie","Unhealthy (0)","Undecidable"],2,"Neighbors: 0,0,1,1,0.","الجيران: 0,0,1,1,0."],
+["Naive Bayes Play Tennis (Sunny, Cool, High, Strong):",["Yes (0.795)","Yes (0.205)","No (0.205)","No (0.795)"],3,"V(no) = 0.0206 beats V(yes) = 0.005.","V(no) = 0.0206 أكبر من V(yes) = 0.005."],
+["Each node in a search tree corresponds to…",["a single state","an action","an entire path in the state space graph","a goal"],2,"A node is a plan.","العقدة خطة."],
+["How many world states does the 2-square vacuum world have?",["4","6","16","8"],3,"2 × 2 × 2 = 8.","2 × 2 × 2 = 8."],
+["The fringe (open list) holds nodes that are…",["already expanded","discovered but not yet expanded","undiscovered","only goals"],1,"Generated, waiting to be processed.","مُولَّدة تنتظر المعالجة."]];
+document.getElementById("nav").innerHTML="<a class='home' href='index.html'>🏠 "+L("Home","الرئيسية")+"</a>"+S.map(function(s){return "<a href='#"+s[0]+"'>"+L(s[1],s[2])+"</a>"}).join("")+"<div class='tg' role='group' aria-label='Language'><button class='on' data-l=''>AR + EN</button><button data-l='ar'>عربي</button><button data-l='en'>EN</button></div>";
+document.getElementById("app").innerHTML=S.map(function(s){return s[3]}).join("");
+document.getElementById("fcs").innerHTML=F.map(function(f){return "<button class='fc'><span><em>"+L(f[0],f[1])+"</em></span></button>"}).join("");
+document.querySelectorAll(".fc").forEach(function(b,i){b.onclick=function(){b.classList.toggle("f");b.firstChild.firstChild.innerHTML=b.classList.contains("f")?L(F[i][2],F[i][3]):L(F[i][0],F[i][1])}});
+var sc=0,dn=0,sd=document.getElementById("score");
+function build(){sc=0;dn=0;sd.textContent="0 / "+Q.length;document.getElementById("qs").innerHTML="";
+Q.forEach(function(q,i){var d=document.createElement("div");d.className="q";
+d.innerHTML="<p><b>Q"+(i+1)+".</b> "+q[0]+"</p>"+q[1].map(function(o,j){return "<button data-j='"+j+"'>"+o+"</button>"}).join("")+"<div class='fb'>"+L(q[3],q[4])+"</div>";
+d.querySelectorAll("button").forEach(function(b){b.onclick=function(){var j=+b.dataset.j,bs=d.querySelectorAll("button");
+bs.forEach(function(x){x.disabled=true});bs[q[2]].classList.add("ok");
+if(j===q[2])sc++;else b.classList.add("no");
+d.classList.add("d");dn++;sd.textContent=sc+" / "+Q.length+(dn===Q.length?(sc>=Q.length*0.8?" 🔥 ممتاز / Great":" راجع / Review"):"")}});
+document.getElementById("qs").appendChild(d)})}
+build();document.getElementById("rs").onclick=build;
+document.querySelectorAll(".tg button").forEach(function(b){b.onclick=function(){document.querySelectorAll(".tg button").forEach(function(x){x.classList.remove("on")});b.classList.add("on");document.body.className=b.dataset.l}});
+</script>
+</body>
+</html>
